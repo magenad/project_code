@@ -1,17 +1,36 @@
-import webpack from "webpack";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import {BuildOptions} from "./types/config";
+import webpack from 'webpack';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { BuildOptions } from './types/config';
 
-export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
+export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     const typescriptLoader = {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
-    }
+    };
     const svgLoader = {
         test: /\.svg$/i,
         use: ['@svgr/webpack'],
-    }
+    };
+    const babelLoader = {
+        test: /\.(js|jsx|tsx)$/,
+        exclude: /node_modules/,
+        use: {
+            loader: 'babel-loader',
+            options: {
+                presets: ['@babel/preset-env'],
+                plugins: [
+                    [
+                        'i18next-extract',
+                        {
+                            locales: ['ru', 'en'],
+                            keyAsDefaultValue: true
+                        }
+                    ]
+                ]
+            }
+        }
+    };
     const cssLoader = {
         test: /\.s[ac]ss$/i,
         use: [
@@ -19,7 +38,7 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
             isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
             // Translates CSS into CommonJS
             {
-                loader: "css-loader",
+                loader: 'css-loader',
                 options: {
                     modules: {
                         auto: (resPath: string) => resPath.includes('.module'),
@@ -32,9 +51,9 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
             }
             ,
             // Compiles Sass to CSS
-            "sass-loader"
+            'sass-loader'
         ]
-    }
+    };
     const fileLoader = {
         test: /\.(png|jpg|gif|woff2|woff)$/,
         use: [
@@ -43,11 +62,12 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
                 options: {}
             },
         ],
-    }
+    };
     return [
         fileLoader,
         svgLoader,
+        babelLoader,
         typescriptLoader,
         cssLoader
-    ]
+    ];
 }
