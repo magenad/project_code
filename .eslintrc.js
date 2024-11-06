@@ -1,15 +1,11 @@
+// eslint-disable-next-line no-undef
 module.exports = {
     'env': {
         'browser': true,
         'es2021': true,
         'jest': true,
     },
-    'extends': [
-        'eslint:recommended',
-        'plugin:@typescript-eslint/recommended',
-        'plugin:react/recommended',
-        'plugin:i18next/recommended'
-    ],
+    'extends': ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:react/recommended', 'plugin:i18next/recommended', 'plugin:storybook/recommended'],
     // 'overrides': [
     //     {
     //         'env': {
@@ -55,7 +51,7 @@ module.exports = {
         'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
         indent: [2, 4],
         'object-curly-spacing': [2,'always'],
-        'i18next/no-literal-string':['error',{ markupOnly:true,ignoreAttribute: ['data-testid'] }],
+        'i18next/no-literal-string':['error',{ markupOnly:true,ignoreAttribute: ['data-testid','to'] }],
     },
     overrides : [
         {
