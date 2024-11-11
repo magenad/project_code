@@ -36,11 +36,11 @@ module.exports = {
 
         'linebreak-style': [
             'error',
-            'unix'
+            'windows',
         ],
         'quotes': [
             'error',
-            'double',
+            'single',
         ],
         'semi': [
             'error',

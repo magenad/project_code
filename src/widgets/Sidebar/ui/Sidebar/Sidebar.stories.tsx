@@ -1,17 +1,17 @@
-import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Sidebar } from "./Sidebar";
-import { Theme } from "app/provider/ThemeProvider";
-import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
+import { Sidebar } from './Sidebar';
+import { Theme } from 'app/provider/ThemeProvider';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: "widget/Sidebar",
+    title: 'widget/Sidebar',
     component: Sidebar,
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
     argTypes: {
-        backgroundColor: { control: "color" },
+        backgroundColor: { control: 'color' },
     },
 } as ComponentMeta<typeof Sidebar>;
 
