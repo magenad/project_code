@@ -1,13 +1,13 @@
-import { Button, ThemeButton } from "shared/ui/Button/Button";
-import { render, screen } from "@testing-library/react";
+import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { render, screen } from '@testing-library/react';
 
-describe("Button", function() {
-    test("with only first param", async function() {
+describe('Button', function() {
+    test('with only first param', async function() {
         render(<Button>Test</Button>);
-        expect(screen.getByText("Test")).toBeInTheDocument();
+        expect(screen.getByText('Test')).toBeInTheDocument();
     });
-    test("test clear theme", async function() {
+    test('test clear theme', async function() {
         render(<Button theme={ThemeButton.CLEAR}>Test</Button>);
-        expect(screen.getByText("Test")).toHaveClass("clear");
+        expect(screen.getByText('Test')).toHaveClass('clear');
     });
 });
