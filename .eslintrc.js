@@ -32,6 +32,13 @@ module.exports = {
         'react',
         'i18next'
     ],
+
+    'settings': {
+        'react': {
+            'version': 'detect'
+        }
+    },
+
     'rules': {
 
         'linebreak-style': [
