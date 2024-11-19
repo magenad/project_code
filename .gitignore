@@ -1,5 +1,9 @@
 /build
 node_modules
 .idea
-
-./.npmrc
+/storybook-static/
+/.loki/
+!/.loki/reference/
+package-lock.json
+/extractedTranslations
+.npmrc
