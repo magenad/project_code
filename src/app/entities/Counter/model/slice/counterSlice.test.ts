@@ -1,5 +1,5 @@
 import { counterActions, counterReducer } from './counterSlice';
-import { CounterSchema } from 'app/entities1/Counter';
+import { CounterSchema } from 'app/entities/Counter';
 
 describe('counterSlice.test', () => {
     test('increment', () => {
