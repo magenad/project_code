@@ -79,7 +79,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "loki": "^0.35.1",
     "mini-css-extract-plugin": "2.5.3",
-    "reg-cli": "^0.8.14",
+    "reg-cli": "^0.17.7",
     "sass": "1.49.9",
     "sass-loader": "12.6.0",
     "sb": "^8.4.4",
