@@ -1,8 +1,8 @@
-
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Modal.module.scss';
-import { ReactNode, MouseEvent, useState, useRef, useEffect, useCallback } from 'react';
+import { MouseEvent, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
+
 interface ModalProps {
     className?:string,
     children?: ReactNode,
@@ -13,6 +13,7 @@ const ANIMATION_DELAY = 300;
 export const Modal = ({ className,children,isOpen,onClose }:ModalProps) => {
     const [isClosing,setIsClosing] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
+    
     const closeHandler = useCallback(() => {
         if (onClose) {
             setIsClosing(true);
