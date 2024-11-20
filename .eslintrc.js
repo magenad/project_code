@@ -30,7 +30,8 @@ module.exports = {
     'plugins': [
         '@typescript-eslint',
         'react',
-        'i18next'
+        'i18next',
+        'react-hooks'
     ],
 
     'settings': {
@@ -59,6 +60,8 @@ module.exports = {
         indent: [2, 4],
         'object-curly-spacing': [2,'always'],
         'i18next/no-literal-string':['error',{ markupOnly:true,ignoreAttribute: ['data-testid','to'] }],
+        'react-hooks/rules-of-hooks': 'error',
+        'react-hooks/exhaustive-deps': 'error'
     },
     overrides : [
         {
