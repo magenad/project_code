@@ -4,16 +4,21 @@ import { MouseEvent, ReactNode, useCallback, useEffect, useRef, useState } from 
 import { Portal } from 'shared/ui/Portal/Portal';
 
 interface ModalProps {
-    className?:string,
-    children?: ReactNode,
-    isOpen?: boolean,
-    onClose?: () => void,
+    className?:string;
+    children?: ReactNode;
+    isOpen?: boolean;
+    onClose?: () => void;
+    lazy?: boolean;
 }
 const ANIMATION_DELAY = 300;
-export const Modal = ({ className,children,isOpen,onClose }:ModalProps) => {
+export const Modal = ({ className,children,isOpen,onClose,lazy }:ModalProps) => {
     const [isClosing,setIsClosing] = useState(false);
+    const [isMounted,setIsMounted] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
-    
+    useEffect(() => {
+        setIsMounted(isOpen);
+    }, [isOpen]);
+
     const closeHandler = useCallback(() => {
         if (onClose) {
             setIsClosing(true);
@@ -44,6 +49,9 @@ export const Modal = ({ className,children,isOpen,onClose }:ModalProps) => {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
     };
+    if(lazy&& !isMounted){
+        return null;
+    }
     return (
         <Portal>
             <div className={classNames(cls.Modal, mods, [className])}>
