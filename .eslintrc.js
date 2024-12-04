@@ -59,7 +59,7 @@ module.exports = {
         'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
         indent: [2, 4],
         'object-curly-spacing': [2,'always'],
-        'i18next/no-literal-string':['error',{ markupOnly:true,ignoreAttribute: ['data-testid','to'] }],
+        'i18next/no-literal-string':['error',{ markupOnly:true,ignoreAttribute: ['data-testid','to','name'] }],
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error'
     },
