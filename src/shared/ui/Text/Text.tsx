@@ -1,9 +1,14 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Text.module.scss';
 
 export enum ThemeText {
     PRIMARY = 'primary',
     ERROR = 'error',
+}
+export enum TextAlign {
+    RIGHT = 'right',
+    LEFT = 'left',
+    CENTER = 'CENTER',
 }
 
 interface TextProps {
@@ -11,13 +16,19 @@ interface TextProps {
     title?: string;
     text?: string;
     theme?: ThemeText;
+    align?: TextAlign
 }
 
 export const Text = (props: TextProps) => {
-    const { className, text, title, theme = ThemeText.PRIMARY } = props;
+    const { className, text, title, theme = ThemeText.PRIMARY,align  = TextAlign.LEFT } = props;
+    const mods:Mods = {
+        [cls[theme]]:true,
+        [cls[align]]:true,
+        
+    };
     return (
         <div
-            className={classNames(cls.Text, { [cls[theme]]: true }, [
+            className={classNames(cls.Text,  mods , [
                 className,
             ])}
         >
