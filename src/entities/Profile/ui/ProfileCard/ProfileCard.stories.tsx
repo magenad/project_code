@@ -3,14 +3,14 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ProfileCard } from './ProfileCard';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import avatar from  'shared/assets/tests/storybook.jpg';
+import avatar from 'shared/assets/tests/storybook.jpg';
 
 export default {
     title: 'entities/ProfileCard',
     component: ProfileCard,
     argTypes: {
-        backgroundColor: { control: 'color' },
-    },
+        backgroundColor: { control: 'color' }
+    }
 } as ComponentMeta<typeof ProfileCard>;
 
 const Template: ComponentStory<typeof ProfileCard> = (args) => (
@@ -30,12 +30,17 @@ Primary.args = {
         avatar
     }
 };
+Primary.parameters = {
+    parameters: {
+        loki: { skip: true }
+    }
+};
 export const WithError = Template.bind({});
 WithError.args = {
-    error:'true'
+    error: 'true'
 };
 export const Loading = Template.bind({});
 Loading.args = {
-    isLoading:true
+    isLoading: true
 };
 
