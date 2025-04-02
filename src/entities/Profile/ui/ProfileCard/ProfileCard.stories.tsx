@@ -31,9 +31,8 @@ Primary.args = {
     }
 };
 Primary.parameters = {
-    parameters: {
-        loki: { skip: true }
-    }
+    loki: { skip: true }
+
 };
 export const WithError = Template.bind({});
 WithError.args = {
