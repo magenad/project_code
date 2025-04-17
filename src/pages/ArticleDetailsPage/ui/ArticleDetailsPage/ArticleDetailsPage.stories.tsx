@@ -5,18 +5,8 @@ import ArticleDetailsPage from './ArticleDetailsPage';
 import { Article } from 'entities/Article';
 import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import { MemoryRouterDecorator } from 'shared/config/storybook/MemoryRouterDecorator';
-
-export default {
-    title: 'pages/ArticleDetailsPage/1',
-    component: ArticleDetailsPage,
-    argTypes: {
-        backgroundColor: { control: 'color' }
-    }
-} as ComponentMeta<typeof ArticleDetailsPage>;
-
-
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+import { Theme } from 'app/provider/ThemeProvider';
 
 const article: Article = {
     'id': '1',
@@ -87,15 +77,36 @@ const article: Article = {
         }
     ]
 };
-export const Normal = Template.bind({});
-Normal.args = {};
-Normal.decorators = [
-    StoreDecorator({
+export default {
+    title: 'pages/ArticleDetailsPage',
+    component: ArticleDetailsPage,
+    argTypes: {
+        backgroundColor: { control: 'color' }
+    },
+    decorators: [StoreDecorator({
         articleDetails: {
             data: article
         }
     }
-    )
-];
+    )],
+    parameters: {
+        reactRouter: {
+            routePath: '/articles/:id',
+            routeParams: { id: '42' }
+        }
+
+    }
+} as ComponentMeta<typeof ArticleDetailsPage>;
+
+
+const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
+
+
+export const Normal = Template.bind({});
+Normal.decorators = [ThemeDecorator(Theme.LIGHT)];
+Normal.args = {};
+export const Dark = Template.bind({});
+Dark.args = {};
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
 
