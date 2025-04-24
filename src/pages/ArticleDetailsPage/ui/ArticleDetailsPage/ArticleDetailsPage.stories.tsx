@@ -86,6 +86,22 @@ export default {
     decorators: [StoreDecorator({
         articleDetails: {
             data: article
+        }, articleDetailsComments: {
+            isLoading:true,
+            ids: [],
+            entities:{
+                '1': {
+                    id: '1',
+                    text: 'Hello World',
+                    user: { id: '1', username: 'Vasya' }
+                },
+                '2': {
+                    id: '2',
+                    text: 'Hello World!!!!',
+                    user: { id: '2', username: 'Petya' }
+                }
+
+            }
         }
     }
     )],
