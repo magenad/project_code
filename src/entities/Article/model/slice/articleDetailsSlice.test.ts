@@ -1,9 +1,7 @@
-import { articleDetailsActions, articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
+import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
 import { Article, ArticleDetailsSchema } from 'entities/Article';
 import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
 import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { isRejectedWithValue } from '@reduxjs/toolkit';
 
 
 const article: Article = {
@@ -12,7 +10,11 @@ const article: Article = {
     'subtitle': 'Что нового в JS за 2022 год?',
     'img': 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     'views': 1022,
-    'createdAt': '26.02.2022',
+    'createdAt': '26.02.2022','user':{
+        id:'1',
+        username: 'CreatoRRR',
+        avatar:'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg'
+    },
     'type': [ArticleType.IT],
     'blocks': [
         {
