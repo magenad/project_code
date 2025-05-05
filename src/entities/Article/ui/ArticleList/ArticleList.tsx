@@ -20,13 +20,7 @@ const getSkeletons = (view:ArticleView)=>(new Array(view === ArticleView.SMALL ?
 export const ArticleList = memo((props: ArticleListProps) => {
     const { className, articles, isLoading, view = ArticleView.SMALL } = props;
     const { t } = useTranslation();
-    if(isLoading) {
-        return (
-            <div className={classNames(cls[view], {}, [className])}>
-                {getSkeletons(view)}
-            </div>
-        );
-    }
+
     const renderArticle = (article: Article) => {
         return (
             <ArticleListItem
@@ -44,6 +38,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                 ? articles.map(renderArticle)
                 : null
             }
+            {isLoading && getSkeletons(view)}
         </div>
     );
 });

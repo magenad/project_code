@@ -27,7 +27,7 @@ export const Navbar = ({ className }: NavbarProps) => {
     }, [dispatch]);
     if (authData) {
         return (
-            <div className={classNames(cls.Navbar, {}, [className])}>
+            <header className={classNames(cls.Navbar, {}, [className])}>
                 <Button
                     theme={ThemeButton.CLEAR_INVERTED}
                     className={cls.links}
@@ -35,7 +35,7 @@ export const Navbar = ({ className }: NavbarProps) => {
                 >
                     {t('Выйти')}
                 </Button>
-            </div>
+            </header>
         );
     }
     return (
