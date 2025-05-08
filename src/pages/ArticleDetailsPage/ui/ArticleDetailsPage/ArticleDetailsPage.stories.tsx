@@ -14,10 +14,10 @@ const article: Article = {
     'subtitle': 'Что нового в JS за 2022 год?',
     'img': 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     'views': 1022,
-    'user':{
-        id:'1',
+    'user': {
+        id: '1',
         username: 'CreatoRRR',
-        avatar:'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg'
+        avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg'
     },
     'createdAt': '26.02.2022',
     'type': [ArticleType.IT],
@@ -91,21 +91,23 @@ export default {
     decorators: [StoreDecorator({
         articleDetails: {
             data: article
-        }, articleDetailsComments: {
-            isLoading:true,
-            ids: [],
-            entities:{
-                '1': {
-                    id: '1',
-                    text: 'Hello World',
-                    user: { id: '1', username: 'Vasya' }
-                },
-                '2': {
-                    id: '2',
-                    text: 'Hello World!!!!',
-                    user: { id: '2', username: 'Petya' }
-                }
+        }, articleDetailsPage: {
+            comments: {
+                isLoading: true,
+                ids: [],
+                entities: {
+                    '1': {
+                        id: '1',
+                        text: 'Hello World',
+                        user: { id: '1', username: 'Vasya' }
+                    },
+                    '2': {
+                        id: '2',
+                        text: 'Hello World!!!!',
+                        user: { id: '2', username: 'Petya' }
+                    }
 
+                }
             }
         }
     }

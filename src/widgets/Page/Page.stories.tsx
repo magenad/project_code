@@ -1,14 +1,16 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { Page } from './Page';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 
 export default {
     title: 'widget/Page',
     component: Page,
     argTypes: {
         backgroundColor: { control: 'color' }
-    }
+    },
+    decorators: [StoreDecorator({})]
 } as ComponentMeta<typeof Page>;
 
 

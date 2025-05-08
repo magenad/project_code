@@ -14,11 +14,11 @@
   "articles": [
     {
       "id": "1",
-      "title": "Javascript news",
+      "title": "Javascript news 24",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 1522,
+      "createdAt": "24.02.2022",
       "userId": "1",
       "type": [
         "IT"
@@ -86,14 +86,14 @@
     },
     {
       "id": "2",
-      "title": "Python news",
+      "title": "Python news 26",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://i0.wp.com/junilearning.com/wp-content/uploads/2020/06/python-programming-language.webp",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 122,
+      "createdAt": "26.08.2022",
       "userId": "1",
       "type": [
-        "IT"
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -158,11 +158,11 @@
     },
     {
       "id": "3",
-      "title": "Kotlin news",
+      "title": "Kotlin news week",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/1024px-Kotlin_Icon.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 2022,
+      "createdAt": "06.01.2022",
       "userId": "1",
       "type": [
         "IT"
@@ -230,11 +230,11 @@
     },
     {
       "id": "4",
-      "title": "Python news",
+      "title": "Python news of year",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://i0.wp.com/junilearning.com/wp-content/uploads/2020/06/python-programming-language.webp",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 10022,
+      "createdAt": "02.01.2024",
       "userId": "1",
       "type": [
         "IT"
@@ -254,11 +254,11 @@
     },
     {
       "id": "5",
-      "title": "Kotlin news",
+      "title": "Kotlin news in LA",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/1024px-Kotlin_Icon.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 1222,
+      "createdAt": "16.02.2032",
       "userId": "1",
       "type": [
         "IT"
@@ -278,11 +278,11 @@
     },
     {
       "id": "6",
-      "title": "Python news",
+      "title": "Python news !",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://i0.wp.com/junilearning.com/wp-content/uploads/2020/06/python-programming-language.webp",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 2322,
+      "createdAt": "05.09.2022",
       "userId": "1",
       "type": [
         "IT"
@@ -302,11 +302,11 @@
     },
     {
       "id": "7",
-      "title": "Kotlin news",
+      "title": "Kotlin news datad",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/1024px-Kotlin_Icon.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 1910,
+      "createdAt": "26.12.2023",
       "userId": "1",
       "type": [
         "IT"
@@ -329,8 +329,8 @@
       "title": "Python news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://i0.wp.com/junilearning.com/wp-content/uploads/2020/06/python-programming-language.webp",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 1023,
+      "createdAt": "16.04.2022",
       "userId": "1",
       "type": [
         "IT"
@@ -350,11 +350,11 @@
     },
     {
       "id": "9",
-      "title": "Kotlin news",
+      "title": "Kotlin news R",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/1024px-Kotlin_Icon.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 3022,
+      "createdAt": "15.07.2022",
       "userId": "1",
       "type": [
         "IT"
@@ -374,11 +374,11 @@
     },
     {
       "id": "10",
-      "title": "Python news",
+      "title": "Python news qwer",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://i0.wp.com/junilearning.com/wp-content/uploads/2020/06/python-programming-language.webp",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 1129,
+      "createdAt": "08.02.2023",
       "userId": "1",
       "type": [
         "IT"
@@ -398,11 +398,11 @@
     },
     {
       "id": "11",
-      "title": "Kotlin news",
+      "title": "Kotlin news WWW",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/1024px-Kotlin_Icon.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 4022,
+      "createdAt": "02.04.2022",
       "userId": "1",
       "type": [
         "IT"
@@ -422,11 +422,11 @@
     },
     {
       "id": "12",
-      "title": "Python news",
+      "title": "Python news 2022",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://i0.wp.com/junilearning.com/wp-content/uploads/2020/06/python-programming-language.webp",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 7022,
+      "createdAt": "26.01.2022",
       "userId": "1",
       "type": [
         "IT"
@@ -446,11 +446,11 @@
     },
     {
       "id": "13",
-      "title": "Kotlin news",
+      "title": "Kotlin news 2022",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/1024px-Kotlin_Icon.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 17022,
+      "createdAt": "26.12.2022",
       "userId": "1",
       "type": [
         "IT"
@@ -473,8 +473,8 @@
       "title": "Python news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://i0.wp.com/junilearning.com/wp-content/uploads/2020/06/python-programming-language.webp",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 6022,
+      "createdAt": "16.10.2023",
       "userId": "1",
       "type": [
         "IT"
@@ -494,11 +494,11 @@
     },
     {
       "id": "15",
-      "title": "Kotlin news",
+      "title": "Kotlin news 2023",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/1024px-Kotlin_Icon.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 3022,
+      "createdAt": "26.07.2023",
       "userId": "1",
       "type": [
         "IT"
@@ -518,11 +518,11 @@
     },
     {
       "id": "16",
-      "title": "Python news",
-      "subtitle": "Что нового в JS за 2022 год?",
+      "title": "Python news 2024",
+      "subtitle": "Что нового в JS за 2024 год?",
       "img": "https://i0.wp.com/junilearning.com/wp-content/uploads/2020/06/python-programming-language.webp",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 1444,
+      "createdAt": "04.04.2024",
       "userId": "1",
       "type": [
         "IT"
@@ -542,11 +542,11 @@
     },
     {
       "id": "17",
-      "title": "Kotlin news",
+      "title": "Kotlin news prod",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/1024px-Kotlin_Icon.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 1092,
+      "createdAt": "09.11.2022",
       "userId": "1",
       "type": [
         "IT"

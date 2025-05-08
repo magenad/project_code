@@ -3,15 +3,21 @@ import { useTranslation } from 'react-i18next';
 import cls from './Card.module.scss';
 import { HTMLAttributes, memo, ReactNode } from 'react';
 
-interface CardProps extends HTMLAttributes<HTMLDivElement>{
-    className?: string;
-    children:ReactNode;
+export enum CardTheme {
+    NORMAL = 'normal',
+    OUTLINED = 'outlined',
 }
 
-export const Card = memo(({ className ,children, ...otherProps }: CardProps) => {
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
+    className?: string;
+    children: ReactNode;
+    theme?: CardTheme;
+}
+
+export const Card = memo(({ className, children, theme = CardTheme.NORMAL, ...otherProps }: CardProps) => {
     const { t } = useTranslation();
     return (
-        <div className={classNames(cls.Card, {}, [className])} {...otherProps}>
+        <div className={classNames(cls.Card, {}, [className, cls[theme]])} {...otherProps}>
             {children}
         </div>
     );
