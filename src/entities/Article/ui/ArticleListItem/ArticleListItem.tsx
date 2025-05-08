@@ -31,7 +31,6 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             <Icon Svg={EyeIcon} />
         </>
     );
-    ;
     if (view === ArticleView.SMALL) {
         return (
             <AppLink

@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import cls from './Card.module.scss';
 import { HTMLAttributes, memo, ReactNode } from 'react';
 
@@ -15,7 +14,6 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const Card = memo(({ className, children, theme = CardTheme.NORMAL, ...otherProps }: CardProps) => {
-    const { t } = useTranslation();
     return (
         <div className={classNames(cls.Card, {}, [className, cls[theme]])} {...otherProps}>
             {children}
