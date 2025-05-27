@@ -1,7 +1,7 @@
-import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
-import { Article, ArticleDetailsSchema } from 'entities/Article';
-import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
-import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
+import { articleDetailsReducer } from './articleDetailsSlice';
+import {  ArticleDetailsSchema } from '../../model/types/articleDetailsSchema';
+import { ArticleBlockType, ArticleType,Article } from '../../model/types/article';
+import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 
 
 const article: Article = {

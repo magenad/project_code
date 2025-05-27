@@ -32,7 +32,7 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: ['@typescript-eslint', 'react', 'i18next', 'react-hooks'],
+    plugins: ['@typescript-eslint', 'react', 'i18next', 'react-hooks','my'],
 
     settings: {
         react: {
@@ -63,6 +63,7 @@ module.exports = {
         ],
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
+        'my/path-checker': 'error',
     },
     overrides: [
         {

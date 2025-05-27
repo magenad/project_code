@@ -60,6 +60,7 @@
     "@types/react": "17.0.39",
     "@types/react-dom": "17.0.11",
     "@types/react-router-dom": "5.3.3",
+    "@types/react-virtualized":"^9.21.28",
     "@types/webpack": "5.28.2",
     "@types/webpack-bundle-analyzer": "^4.4.1",
     "@types/webpack-dev-server": "4.7.2",
@@ -77,6 +78,7 @@
     "eslint-plugin-react": "^7.29.2",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-storybook": "^0.10.1",
+    "eslint-plugin-my": "0.0.2",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "5.5.0",
     "husky": "^7.0.4",
@@ -113,7 +115,8 @@
     "react-dom": "17.0.2",
     "react-i18next": "^11.15.5",
     "react-redux": "^7.2.6",
-    "react-router-dom": "6.3.0"
+    "react-router-dom": "6.3.0",
+    "react-virtualized": "^9.22.6"
   },
   "loki": {
     "fetchFailIgnore": ".*",
