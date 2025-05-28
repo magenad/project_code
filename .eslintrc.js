@@ -3,13 +3,13 @@ module.exports = {
     env: {
         browser: true,
         es2021: true,
-        jest: true,
+        jest: true
     },
     extends: [
         'plugin:react/recommended',
         'plugin:i18next/recommended',
         'plugin:storybook/recommended',
-        'plugin:react/jsx-runtime',
+        'plugin:react/jsx-runtime'
     ],
     // 'overrides': [
     //     {
@@ -27,17 +27,17 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
-            jsx: true,
+            jsx: true
         },
         ecmaVersion: 'latest',
-        sourceType: 'module',
+        sourceType: 'module'
     },
-    plugins: ['@typescript-eslint', 'react', 'i18next', 'react-hooks','my'],
+    plugins: ['@typescript-eslint', 'react', 'i18next', 'react-hooks', 'my'],
 
     settings: {
         react: {
-            version: 'detect',
-        },
+            version: 'detect'
+        }
     },
 
     rules: {
@@ -51,26 +51,26 @@ module.exports = {
         indent: ['error', 4],
         'react/jsx-filename-extension': [
             2,
-            { extensions: ['.js', '.jsx', '.tsx'] },
+            { extensions: ['.js', '.jsx', '.tsx'] }
         ],
         'object-curly-spacing': [2, 'always'],
         'i18next/no-literal-string': [
             'error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['data-testid', 'to', 'name', 'target'],
-            },
+                ignoreAttribute: ['data-testid', 'to', 'name', 'target', 'justify', 'align', 'direction', 'gap']
+            }
         ],
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
-        'my/path-checker': 'error',
+        'my/path-checker': 'error'
     },
     overrides: [
         {
-            files: ['**/**/*.test.{ts,tsx}','**/**/*.stories.{ts,tsx}'],
+            files: ['**/**/*.test.{ts,tsx}', '**/**/*.stories.{ts,tsx}'],
             rules: {
-                'i18next/no-literal-string': 'off',
-            },
-        },
-    ],
+                'i18next/no-literal-string': 'off'
+            }
+        }
+    ]
 };
