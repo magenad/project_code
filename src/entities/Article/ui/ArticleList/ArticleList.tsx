@@ -52,18 +52,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
             </div>
         );
     };
-    const renderArticle = (article: Article) => {
-        return (
-            <ArticleListItem
-                article={article}
-                view={view}
-                key={article.id}
-                className={cls.card}
-                target={target}
-            />
-        );
-
-    };
     if (!isLoading && !articles.length) {
         return (
             <div className={classNames(cls[view], {}, [className])}>
@@ -71,18 +59,9 @@ export const ArticleList = memo((props: ArticleListProps) => {
             </div>
         );
     }
-    // return (
-    //     <div className={classNames(cls[view], {}, [className])}>
-    //         {articles.length > 0
-    //             ? articles.map(renderArticle)
-    //             : null
-    //         }
-    //         {isLoading && getSkeletons(view)}
-    //     </div>
-    // );
     return (
         <WindowScroller
-            onScroll={() => console.log('scroll')}
+            // onScroll={() => console.log('scroll')}
             scrollElement={document.getElementById(PAGE_ID) as Element}
         >
             {({

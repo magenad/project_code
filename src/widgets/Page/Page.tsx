@@ -15,18 +15,19 @@ interface PageProps {
     className?: string;
     children: ReactNode;
     onScrollEnd?: () => void;
+    isLoading?: boolean;
 }
 
-export const PAGE_ID='PAGE_ID';
+export const PAGE_ID = 'PAGE_ID';
 
-export const Page = memo(({ className, children, onScrollEnd }: PageProps) => {
+export const Page = memo(({ className, children, onScrollEnd, isLoading }: PageProps) => {
     const wrapperRef = useRef() as MutableRefObject<HTMLElement>;
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const dispatch = useAppDispatch();
     const { pathname } = useLocation();
     const scrollPosition = useSelector((state: StateSchema) => getUIScrollByPath(state, pathname));
 
-    useInfiniteScroll({ triggerRef, wrapperRef, callback: onScrollEnd });
+    useInfiniteScroll({ triggerRef, wrapperRef, callback: isLoading ? undefined :onScrollEnd });
     useInitialEffect(() => {
         wrapperRef.current.scrollTop = scrollPosition;
     });

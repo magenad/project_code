@@ -35,7 +35,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     const error = useSelector(getArticlesPageError);
     const view = useSelector(getArticlesPageView);
     let [searchParams] = useSearchParams();
-    console.log(searchParams);
+    // console.log(searchParams);
 
 
 
@@ -48,7 +48,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     });
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-            <Page onScrollEnd={onLoadNextPart} className={classNames(cls.ArticlesPage, {}, [className])}>
+            <Page onScrollEnd={onLoadNextPart} className={classNames(cls.ArticlesPage, {}, [className])} isLoading={isLoading}>
                 <ArticlesPageFilter />
                 <ArticleList
                     isLoading={isLoading}
