@@ -3,7 +3,7 @@ import { Fragment, ReactNode } from 'react';
 import cls from './ListBox.module.scss';
 import { Button } from '../Button/Button';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { HStack } from 'shared/ui/Stack';
+import { HStack } from '../Stack';
 
 export interface ListBoxItem {
     value: string;
@@ -69,4 +69,4 @@ export function ListBox(props: ListBoxProps) {
         </HStack>
 
     );
-};
+}
