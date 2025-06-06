@@ -4,14 +4,13 @@ import cls from './ListBox.module.scss';
 import { Button } from '../Button/Button';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { HStack } from '../Stack';
+import { DropdownDirection } from 'shared/types/ui';
 
 export interface ListBoxItem {
     value: string;
     content: ReactNode;
     disabled?: boolean;
 }
-
-type DropdownDirection = 'top' | 'bottom';
 
 interface ListBoxProps {
     items?: ListBoxItem[];
@@ -24,11 +23,17 @@ interface ListBoxProps {
     label?: string;
 }
 
+const mapDirectionClass: Record<DropdownDirection, string> = {
+    'bottom left': cls.optionsBottomLeft,
+    'bottom right': cls.optionsBottomRight,
+    'top left': cls.optionsTopLeft,
+    'top right': cls.optionsTopRight
+};
+
 export function ListBox(props: ListBoxProps) {
-    const { className, items, value, defaultValue, onChange, readonly, direction = 'bottom', label } = props;
-    const optionsClasses = [cls[`options_${direction}`]];
+    const { className, items, value, defaultValue, onChange, readonly, direction = 'bottom right', label } = props;
     return (
-        <HStack gap='4'>
+        <HStack gap="4">
             {label && <span>{label + '>'}</span>}
             <HListbox
                 disabled={readonly}
@@ -38,13 +43,13 @@ export function ListBox(props: ListBoxProps) {
                 className={classNames(cls.ListBox, {}, [className])}
             >
 
-                <HListbox.Button className={cls.trigger}>
+                <HListbox.Button as={'div'} className={cls.trigger}>
                     <Button disabled={readonly}>
                         {value ?? defaultValue}
                     </Button>
 
                 </HListbox.Button>
-                <HListbox.Options className={classNames(cls.options, {}, optionsClasses)}>
+                <HListbox.Options className={classNames(cls.options, {}, [mapDirectionClass[direction]])}>
                     {items?.map((item) => (
                         <HListbox.Option
                             key={item.value}

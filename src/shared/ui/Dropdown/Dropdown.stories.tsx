@@ -1,32 +1,30 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { ListBox } from './ListBox';
+import { Dropdown } from './Dropdown';
+import { Button } from '../Button/Button';
 
 export default {
-    title: 'shared/ListBox',
-    component: ListBox,
+    title: 'shared/Dropdown',
+    component: Dropdown,
     argTypes: {
         backgroundColor: { control: 'color' }
     },
     args:{
+        trigger: <Button>Open</Button>,
         items: [
-            { content:'1vvsv23',value:'123' },
-            { content:'hgchkgvvvjv',value:'143' },
-            { content:'kherkargbgreg',value:'423' },
-            { content:'1vvfreryysv23',value:'623' },
-        ],
-        value:'123',
-        label:'ListBox',
+            { content: 'first' },
+            { content: 'second' },
+            { content: 'third' }
+        ]
     },
     decorators: [
-        Story=> <div style={{ padding: '100px' }}><Story/></div>
+        Story=> <div style={{ padding: '150px' }}><Story/></div>
     ]
-} as ComponentMeta<typeof ListBox>;
+} as ComponentMeta<typeof Dropdown>;
 
 
-const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args} />;
-
+const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown {...args} />;
 
 export const BottomLeft = Template.bind({});
 BottomLeft.args = {
