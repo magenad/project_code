@@ -1,17 +1,11 @@
-import {
-    CombinedState,
-    configureStore,
-    Reducer,
-    ReducersMapObject,
-} from '@reduxjs/toolkit';
-import { StateSchema } from './StateSchema';
+import { CombinedState, configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
+import { StateSchema, ThunkExtraArg } from './StateSchema';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { createReducerManager } from './reducerManager';
 import { $api } from 'shared/api/api';
-import { NavigateOptions } from 'react-router';
-import { To } from 'react-router-dom';
 import { uiReducer } from 'features/UI';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export function createReduxStore(
     initialState?: StateSchema,
@@ -21,9 +15,13 @@ export function createReduxStore(
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
-        ui: uiReducer
+        ui: uiReducer,
+        [rtkApi.reducerPath]:rtkApi.reducer
     };
     const reducerManager = createReducerManager(rootReducer);
+    const extraArg: ThunkExtraArg = {
+        api:$api
+    };
     const store = configureStore({
         reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
         devTools: _IS_DEV__,
@@ -31,11 +29,9 @@ export function createReduxStore(
         middleware: (getDefaultMiddleware) =>
             getDefaultMiddleware({
                 thunk: {
-                    extraArgument: {
-                        api: $api
-                    },
+                    extraArgument:extraArg
                 },
-            }),
+            }).concat(rtkApi.middleware),
     });
     // @ts-ignore
     store.reducerManager = reducerManager;

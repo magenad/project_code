@@ -14,7 +14,7 @@ describe('addCommentFormSelectors.test', () => {
     test('should work with empty status FormText', () => {
         const state: DeepPartial<StateSchema> = {};
 
-        expect(getAddCommentFormText(state as StateSchema)).toBeUndefined();
+        expect(getAddCommentFormText(state as StateSchema)).toBe('');
     });
     test('should return value FormError', () => {
         const state: DeepPartial<StateSchema> = {
