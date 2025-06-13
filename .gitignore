@@ -7,3 +7,4 @@ node_modules
 package-lock.json
 /extractedTranslations
 .npmrc
+/reports
