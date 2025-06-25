@@ -21,11 +21,11 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import { VStack } from 'shared/ui/Stack';
 import {
     EditableProfileCardHeader
-} from 'features/editableProfileCard/ui/EditableProfileCardHeader/EditableProfileCardHeader';
+} from '../EditableProfileCardHeader/EditableProfileCardHeader';
 
 interface EditableProfileCardProps {
     className?: string;
-    id: string;
+    id?: string;
 }
 
 const reducers: ReducersList = {

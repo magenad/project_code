@@ -4,6 +4,7 @@ import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator
 import { Theme } from 'app/provider/ThemeProvider';
 import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecotator';
 import { withRouter } from 'storybook-addon-react-router-v6';
+import { SuspenseDecorator } from '../../src/shared/config/storybook/SuspenseDecorator';
 
 
 export const parameters = {
@@ -18,4 +19,6 @@ export const parameters = {
 addDecorator(StyleDecorator);
 addDecorator(ThemeDecorator(Theme.LIGHT));
 addDecorator(withRouter);
+addDecorator(SuspenseDecorator);
+
 // addDecorator(RouterDecorator);

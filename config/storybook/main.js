@@ -8,7 +8,8 @@ module.exports = {
         '@storybook/addon-links',
         '@storybook/addon-essentials',
         '@storybook/addon-interactions',
-        'storybook-addon-react-router-v6'
+        'storybook-addon-react-router-v6',
+        'storybook-addon-mock/register'
     ],
     'framework': '@storybook/react',
     'core': {
