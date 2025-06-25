@@ -1,7 +1,8 @@
 import { articleDetailsReducer } from './articleDetailsSlice';
-import {  ArticleDetailsSchema } from '../../model/types/articleDetailsSchema';
-import { ArticleBlockType, ArticleType,Article } from '../../model/types/article';
+import { ArticleDetailsSchema } from '../../model/types/articleDetailsSchema';
+import { Article } from '../../model/types/article';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
+import { ArticleBlockType, ArticleType } from '../consts/consts';
 
 
 const article: Article = {
@@ -10,10 +11,10 @@ const article: Article = {
     'subtitle': 'Что нового в JS за 2022 год?',
     'img': 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     'views': 1022,
-    'createdAt': '26.02.2022','user':{
-        id:'1',
+    'createdAt': '26.02.2022', 'user': {
+        id: '1',
         username: 'CreatoRRR',
-        avatar:'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg'
+        avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg'
     },
     'type': [ArticleType.IT],
     'blocks': [
@@ -88,39 +89,39 @@ describe('articleDetailsSlice.test', () => {
 
         expect(articleDetailsReducer(
             state as ArticleDetailsSchema,
-            fetchArticleById.pending,
+            fetchArticleById.pending
         )).toEqual({
             isLoading: true,
             error: undefined,
-            data:undefined
+            data: undefined
         });
     });
     test('test update articleDetails service fulfilled', () => {
         const state: DeepPartial<ArticleDetailsSchema> = {
-            isLoading: true,
+            isLoading: true
 
         };
 
         expect(articleDetailsReducer(
             state as ArticleDetailsSchema,
-            fetchArticleById.fulfilled( article,'',''),
+            fetchArticleById.fulfilled(article, '', '')
         )).toEqual({
-            data:article,
+            data: article,
             isLoading: false,
-            error:undefined
+            error: undefined
         });
     });
     test('test update articleDetails service rejected', () => {
         const state: DeepPartial<ArticleDetailsSchema> = {
-            isLoading: true,
+            isLoading: true
 
         };
 
         expect(articleDetailsReducer(
             state as ArticleDetailsSchema,
-            fetchArticleById.rejected,
+            fetchArticleById.rejected
         )).toEqual({
-            isLoading: false,
+            isLoading: false
         });
     });
 });
