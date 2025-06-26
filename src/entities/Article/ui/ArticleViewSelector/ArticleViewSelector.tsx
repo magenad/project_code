@@ -10,8 +10,8 @@ import { ArticleView } from '../../model/consts/consts';
 
 interface ArticleViewSelectorProps {
     className?: string;
-    view: ArticleView,
-    onViewClick?: (view: ArticleView) => void
+    view: ArticleView;
+    onViewClick?: (view: ArticleView) => void;
 }
 
 const viewTypes = [
