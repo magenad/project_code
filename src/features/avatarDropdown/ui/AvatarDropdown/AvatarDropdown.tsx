@@ -1,6 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import cls from './AvatarDropdown.module.scss';
 import { memo, useCallback } from 'react';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
@@ -29,7 +28,7 @@ export const AvatarDropdown = memo(({ className, opened = false }: AvatarDropdow
     }
     return (
         <Dropdown
-            className={classNames(cls.AvatarDropdown, {}, [className])}
+            className={classNames('', {}, [className])}
             items={[
                 ...(isAdminPanelAvailable ? [{
                     content: t('Админка'),
