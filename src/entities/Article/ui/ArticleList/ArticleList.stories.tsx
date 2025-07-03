@@ -3,14 +3,16 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ArticleList } from './ArticleList';
 import { Article } from '../../model/types/article';
-import { ArticleBlockType,ArticleType,ArticleView } from '../../model/consts/consts';
+import { ArticleBlockType, ArticleType, ArticleView } from '../../model/consts/consts';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 
 export default {
     title: 'entities/Article/ArticleList',
     component: ArticleList,
     argTypes: {
         backgroundColor: { control: 'color' }
-    }
+    },
+    args: { virtualized: false }
 } as ComponentMeta<typeof ArticleList>;
 
 
@@ -22,10 +24,10 @@ const article: Article = {
     'img': 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     'views': 1022,
     'createdAt': '26.02.2022',
-    'user':{
-        id:'1',
+    'user': {
+        id: '1',
         username: 'CreatoRRR',
-        avatar:'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg'
+        avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg'
     },
     'type': [ArticleType.IT],
     'blocks': [
@@ -91,38 +93,38 @@ const article: Article = {
 };
 export const LoadingBig = Template.bind({});
 LoadingBig.args = {
-    articles:[],
-    isLoading:true,
-    view:ArticleView.BIG
+    articles: [],
+    isLoading: true,
+    view: ArticleView.BIG
 };
 export const LoadingSmall = Template.bind({});
 LoadingSmall.args = {
-    articles:[],
-    isLoading:true,
-    view:ArticleView.SMALL
+    articles: [],
+    isLoading: true,
+    view: ArticleView.SMALL
 };
 
 export const ListBig = Template.bind({});
 ListBig.args = {
-    articles:new Array(16)
+    articles: new Array(16)
         .fill(0)
         .map((item, index) => ({
             ...article,
             id: String(index)
         })),
-    isLoading:false,
-    view:ArticleView.BIG
+    isLoading: false,
+    view: ArticleView.BIG
 };
 export const ListSmall = Template.bind({});
 ListSmall.args = {
-    articles:new Array(16)
+    articles: new Array(16)
         .fill(0)
         .map((item, index) => ({
             ...article,
             id: String(index)
         })),
-    isLoading:false,
-    view:ArticleView.SMALL
+    isLoading: false,
+    view: ArticleView.SMALL
 };
 
 
