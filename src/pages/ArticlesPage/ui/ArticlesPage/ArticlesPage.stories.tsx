@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import ArticlesPage from './ArticlesPage';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import { ArticleSortField, ArticleType, ArticleView } from 'entities/Article';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
 
 export default {
     title: 'pages/ArticlesPage/ArticlesPage',

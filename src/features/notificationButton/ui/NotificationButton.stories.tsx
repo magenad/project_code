@@ -2,8 +2,8 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { NotificationButton } from './NotificationButton';
-import { Notification } from 'entities/Notification/model/types/notification';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
+import { Notification } from '@/entities/Notification/model/types/notification';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import withMock from 'storybook-addon-mock';
 
 const notification: Notification = { id: '1', title: 'Title', description: 'Description' };

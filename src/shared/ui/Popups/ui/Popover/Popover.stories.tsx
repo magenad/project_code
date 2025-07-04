@@ -5,11 +5,11 @@ import { Popover } from './Popover';
 import { Button, ThemeButton } from '../../../Button/Button';
 import { Icon } from '../../../Icon/Icon';
 import NotificationIcon from '../../../../assets/icons/notification-20-20.svg';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import cls from 'features/notificationButton/ui/NotificationButton.module.scss';
-import { NotificationList } from 'entities/Notification';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import cls from '@/features/notificationButton/ui/NotificationButton.module.scss';
+import { NotificationList } from '@/entities/Notification';
 import withMock from 'storybook-addon-mock';
-import { Notification } from 'entities/Notification/model/types/notification';
+import { Notification } from '@/entities/Notification/model/types/notification';
 
 const notification: Notification = { id: '1', title: 'Title', description: 'Description' };
 export default {

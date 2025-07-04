@@ -1,7 +1,7 @@
 import 'whatwg-fetch';
 import { fireEvent, screen } from '@testing-library/react';
 import { Sidebar } from './Sidebar';
-import { componentRender } from 'shared/lib/tests/componentRender/componentRender';
+import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 
 describe('Sidebar', function () {
     test('Should be able to create a button', function () {

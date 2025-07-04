@@ -1,4 +1,4 @@
-import { LoginSchema } from 'features/AuthByUsername';
+import { LoginSchema } from '@/features/AuthByUsername';
 import { addCommentFormReducer,addCommentFormActions } from './addCommentFormSlice';
 import { AddCommentFormSchema } from '../types/addCommentForm';
 
