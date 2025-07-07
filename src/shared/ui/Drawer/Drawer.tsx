@@ -1,7 +1,7 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import React, { memo, ReactNode, useCallback, useEffect } from 'react';
 
-import { useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
+import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
 import { Overlay } from '../Overlay/Overlay';
 import cls from './Drawer.module.scss';
 import { Portal } from '../Portal/Portal';
@@ -26,7 +26,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
         children,
         onClose,
         isOpen,
-        lazy,
+        lazy
     } = props;
 
     const openDrawer = useCallback(() => {
@@ -44,7 +44,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
             y: height,
             immediate: false,
             config: { ...Spring.config.stiff, velocity },
-            onResolve: onClose,
+            onResolve: onClose
         });
     };
 
@@ -54,7 +54,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
             velocity: [, vy],
             direction: [, dy],
             movement: [, my],
-            cancel,
+            cancel
         }) => {
             if (my < -70) cancel();
 
@@ -69,8 +69,8 @@ export const DrawerContent = memo((props: DrawerProps) => {
             }
         },
         {
-            from: () => [0, y.get()], filterTaps: true, bounds: { top: 0 }, rubberband: true,
-        },
+            from: () => [0, y.get()], filterTaps: true, bounds: { top: 0 }, rubberband: true
+        }
     );
 
     if (!isOpen) {
@@ -95,12 +95,17 @@ export const DrawerContent = memo((props: DrawerProps) => {
     );
 });
 
-export const Drawer = memo((props: DrawerProps) => {
+const DrawerAsync = (props: DrawerProps) => {
     const { isLoaded } = useAnimationLibs();
-
     if (!isLoaded) {
         return null;
     }
-
     return <DrawerContent {...props} />;
-});
+};
+export const Drawer =(props: DrawerProps) => {
+    return (
+        <AnimationProvider>
+            <DrawerAsync {...props} />
+        </AnimationProvider>
+    );
+};
