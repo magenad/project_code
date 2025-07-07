@@ -1,13 +1,17 @@
 import { useTranslation } from 'react-i18next';
-import { BugButton } from '@/app/provider/ErrorBoundary';
 import { Page } from '@/widgets/Page/Page';
+import { RatingCard } from '@/entities/Rating';
 
 const MainPage = () => {
     const { t } = useTranslation('main');
     return (
         <Page>
-            <BugButton />
             {t('Главная страница')}
+            <RatingCard
+                title={'Как вам статья?'}
+                feedbackTitle={'Оставьте отзыв о статье'}
+                hasFeedback={true}
+            />
         </Page>
     );
 };
