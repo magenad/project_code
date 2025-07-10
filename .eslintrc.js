@@ -58,12 +58,12 @@ module.exports = {
             'error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['data-testid', 'to', 'name', 'target', 'justify', 'align', 'direction', 'gap', 'role','as','border']
+                ignoreAttribute: ['data-testid', 'to', 'name', 'target', 'justify', 'align', 'direction', 'gap', 'role', 'as', 'border']
             }
         ],
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
-        'my/path-checker': 'error'
+        'my/path-checker': ['error', { alias: '@' }]
     },
     overrides: [
         {
