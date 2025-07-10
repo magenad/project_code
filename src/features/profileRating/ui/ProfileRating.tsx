@@ -51,8 +51,8 @@ const ProfileRating = memo((props: ProfileRatingProps) => {
             onCancel={onCancel}
             rate={rating?.rate}
             className={className}
-            title={t('Оцените статью')}
-            feedbackTitle={t('Оставьте свой отзыв о статье, это поможет улучшить качество.')}
+            title={t('Оцените пользователя')}
+            feedbackTitle={t('Оставьте свой отзыв о пользователе.')}
             hasFeedback
 
         />
