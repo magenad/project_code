@@ -63,7 +63,11 @@ module.exports = {
         ],
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
-        'my/path-checker': ['error', { alias: '@' }]
+        'my/path-checker': ['error', { alias: '@' }],
+        'my/public-api-imports': ['error', {
+            alias: '@' ,
+            testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+        }],
     },
     overrides: [
         {

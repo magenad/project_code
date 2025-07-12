@@ -7,10 +7,10 @@ import { Profile } from '../../model/types/profile';
 import { Loader } from '@/shared/ui/Loader/Loader';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 
-import { Currency } from '@/entities/Currency/model/types/currency';
+import { Currency } from '@/entities/Currency';
 import { CurrencySelect } from '@/entities/Currency';
 
-import { Country } from '@/entities/Country/model/types/country';
+import { Country } from '@/entities/Country';
 import { CountrySelect } from '@/entities/Country';
 import { HStack, VStack } from '@/shared/ui/Stack';
 
