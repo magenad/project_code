@@ -1,10 +1,10 @@
 import { addDecorator } from '@storybook/react';
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator';
 import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator';
-import { Theme } from 'app/provider/ThemeProvider';
 import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecotator';
 import { withRouter } from 'storybook-addon-react-router-v6';
 import { SuspenseDecorator } from '../../src/shared/config/storybook/SuspenseDecorator';
+import { Theme } from '@/shared/const/theme';
 
 
 export const parameters = {
