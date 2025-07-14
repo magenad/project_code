@@ -64,6 +64,7 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
         'my/path-checker': ['error', { alias: '@' }],
+        'my/layer-imports': ['error', { alias: '@',ignoreImportPatterns:['**/StoreProvider','**/testing'] }],
         'my/public-api-imports': ['error', {
             alias: '@' ,
             testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],

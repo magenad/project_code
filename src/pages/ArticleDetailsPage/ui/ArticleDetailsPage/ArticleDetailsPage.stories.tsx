@@ -5,8 +5,8 @@ import ArticleDetailsPage from './ArticleDetailsPage';
 import { Article, ArticleType } from '@/entities/Article';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/app/provider/ThemeProvider';
 import { ArticleBlockType } from '@/entities/Article';
+import { Theme } from '@/shared/const/theme';
 
 const article: Article = {
     'id': '1',

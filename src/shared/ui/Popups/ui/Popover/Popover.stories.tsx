@@ -6,6 +6,7 @@ import { Button, ThemeButton } from '../../../Button/Button';
 import { Icon } from '../../../Icon/Icon';
 import NotificationIcon from '../../../../assets/icons/notification-20-20.svg';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+// eslint-disable-next-line my/layer-imports
 import { Notification, NotificationList } from '@/entities/Notification';
 import withMock from 'storybook-addon-mock';
 
