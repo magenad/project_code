@@ -1,4 +1,3 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import ProfilePage from './ProfilePage';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';

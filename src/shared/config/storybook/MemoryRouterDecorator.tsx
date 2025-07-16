@@ -1,5 +1,5 @@
 import { Story } from '@storybook/react';
-import { MemoryRouter, MemoryRouterProps, Route, Router } from 'react-router-dom';
+import { MemoryRouter, MemoryRouterProps } from 'react-router-dom';
 export interface MRDProps extends MemoryRouterProps{
     path:string;
 }

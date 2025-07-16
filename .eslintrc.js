@@ -32,7 +32,7 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module'
     },
-    plugins: ['@typescript-eslint', 'react', 'i18next', 'react-hooks', 'my'],
+    plugins: ['@typescript-eslint', 'react', 'i18next', 'react-hooks', 'my', 'eslint-plugin-unused-imports'],
 
     settings: {
         react: {
@@ -48,6 +48,7 @@ module.exports = {
         'react/display-name': 'off',
         'react/jsx-indent': ['error', 4],
         'react/jsx-indent-props': ['error', 4],
+        'unused-imports/no-unused-imports': 'error',
         indent: ['error', 4],
         'react/jsx-filename-extension': [
             2,
@@ -64,11 +65,11 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
         'my/path-checker': ['error', { alias: '@' }],
-        'my/layer-imports': ['error', { alias: '@',ignoreImportPatterns:['**/StoreProvider','**/testing'] }],
+        'my/layer-imports': ['error', { alias: '@', ignoreImportPatterns: ['**/StoreProvider', '**/testing'] }],
         'my/public-api-imports': ['error', {
-            alias: '@' ,
-            testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
-        }],
+            alias: '@',
+            testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx']
+        }]
     },
     overrides: [
         {
