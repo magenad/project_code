@@ -11,18 +11,18 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { Button, ThemeButton } from '@/shared/ui/Button';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { AppLink } from '@/shared/ui/AppLink';
-import { ArticleBlockType,ArticleView } from '../../model/consts/consts';
-import { RoutePath } from '@/shared/const/router';
+import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
+import { getRouteArticleDetails } from '@/shared/const/router';
 
 interface ArticleListItemProps {
     className?: string;
     article: Article;
     view: ArticleView;
-    target?:HTMLAttributeAnchorTarget;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
-    const { className, article, view,target } = props;
+    const { className, article, view, target } = props;
     const { t } = useTranslation();
 
     const types = <Text text={article.type.join(', ')} className={cls.types} />;
@@ -36,7 +36,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         return (
             <AppLink
                 target={target}
-                to={RoutePath.article_details+article.id}
+                to={getRouteArticleDetails(article.id)}
                 className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
                 <Card className={cls.card}>
                     <div className={cls.imageWrapper}>
@@ -52,7 +52,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             </AppLink>
         );
     }
-    const textBlock = article.blocks.find(block=>block.type===ArticleBlockType.TEXT) as ArticleTextBlock;
+    const textBlock = article.blocks.find(block => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
     return (
         <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
             <Card className={cls.card}>
@@ -64,12 +64,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                 <Text title={article.title} className={cls.title} />
                 {types}
                 {view}
-                <img src={article.img} className={cls.img} alt={article.title}/>
+                <img src={article.img} className={cls.img} alt={article.title} />
                 {textBlock && (
-                    <ArticleTextBlockComponent block={textBlock} className={cls.textBlock}/>
+                    <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
                 )}
                 <div className={cls.footer}>
-                    <AppLink to={RoutePath.article_details+article.id}  target={target}>
+                    <AppLink to={getRouteArticleDetails(article.id)} target={target}>
                         <Button theme={ThemeButton.OUTLINED}>
                             {t('Читать далее')}
                         </Button>
