@@ -9,11 +9,11 @@ import CircularDependencyPlugin from 'circular-dependency-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 export function buildPlugins({
-                                 paths,
-                                 isDev,
-                                 apiUrl,
-                                 project
-                             }: BuildOptions): webpack.WebpackPluginInstance[] {
+    paths,
+    isDev,
+    apiUrl,
+    project
+}: BuildOptions): webpack.WebpackPluginInstance[] {
     const plugins = [
         new HTMLWebpackPlugin({
             template: paths.html

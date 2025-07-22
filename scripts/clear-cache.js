@@ -1,2 +1,4 @@
 const fs = require('fs');
-fs.rmdirSync('./node_modules/.cache', { recursive: true });
+fs.exists('./node_modules/.cache', (exists) => {
+    if (exists) fs.rmdirSync('./node_modules/.cache', { recursive: true });
+});
