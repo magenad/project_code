@@ -4,11 +4,8 @@ import cls from './ArticlesPageFilter.module.scss';
 import { memo, useCallback } from 'react';
 import {
     ArticleSortField,
-    ArticleSortSelector,
     ArticleType,
-    ArticleTypeTab,
-    ArticleView,
-    ArticleViewSelector
+    ArticleView
 } from '@/entities/Article';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -25,6 +22,9 @@ import { Input } from '@/shared/ui/Input';
 import { SortOrder } from '@/shared/types';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 
 interface ArticlesPageFilterProps {
     className?: string;
@@ -81,7 +81,7 @@ export const ArticlesPageFilter = memo(({ className }: ArticlesPageFilterProps) 
             <Card className={cls.search}>
                 <Input placeholder={t('Поиск')} onChange={onChangeSearch} value={search} />
             </Card>
-            <ArticleTypeTab value={type} onChangeType={onChangeType}/>
+            <ArticleTypeTabs value={type} onChangeType={onChangeType}/>
         </div>
     );
 });

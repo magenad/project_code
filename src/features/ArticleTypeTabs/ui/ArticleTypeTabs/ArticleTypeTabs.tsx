@@ -1,17 +1,16 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { TabItem, Tabs } from '@/shared/ui/Tabs';
+import { ArticleType } from '@/entities/Article';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
-import { ArticleType } from '../../model/consts/consts';
-
-interface ArticleTypeTabProps {
+interface ArticleTypeTabsProps {
     className?: string;
     value: ArticleType;
     onChangeType: (type: ArticleType) => void;
 }
 
-export const ArticleTypeTab = memo(({ className, value, onChangeType }: ArticleTypeTabProps) => {
+export const ArticleTypeTabs = memo(({ className, value, onChangeType }: ArticleTypeTabsProps) => {
     const { t } = useTranslation();
     const typeTabs = useMemo<TabItem[]>(() => [
         {
