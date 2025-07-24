@@ -43,7 +43,7 @@ export const AvatarDropdown = memo(({ className, opened = false }: AvatarDropdow
                     onClick: onLogout
                 }
             ]}
-            trigger={<Avatar size={30} src={authData.avatar} />}
+            trigger={<Avatar fallbackInverted size={30} src={authData.avatar} />}
             direction={'bottom left'}
             opened={opened}
         />
