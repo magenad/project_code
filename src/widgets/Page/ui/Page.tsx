@@ -9,25 +9,28 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { useSelector } from 'react-redux';
 import { StateSchema } from '@/app/provider/StoreProvider';
 import { useThrottle } from '@/shared/lib/hooks/UseThrottle/UseThrottle';
+import { TestProps } from '@/shared/types/tests';
 
 
-interface PageProps {
+interface PageProps extends TestProps {
     className?: string;
     children: ReactNode;
     onScrollEnd?: () => void;
     isLoading?: boolean;
+
 }
 
 export const PAGE_ID = 'PAGE_ID';
 
-export const Page = memo(({ className, children, onScrollEnd, isLoading }: PageProps) => {
+export const Page = memo((props: PageProps) => {
+    const { className, children, onScrollEnd, isLoading } = props;
     const wrapperRef = useRef() as MutableRefObject<HTMLElement>;
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const dispatch = useAppDispatch();
     const { pathname } = useLocation();
     const scrollPosition = useSelector((state: StateSchema) => getUIScrollByPath(state, pathname));
 
-    useInfiniteScroll({ triggerRef, wrapperRef, callback: isLoading ? undefined :onScrollEnd });
+    useInfiniteScroll({ triggerRef, wrapperRef, callback: isLoading ? undefined : onScrollEnd });
     useInitialEffect(() => {
         wrapperRef.current.scrollTop = scrollPosition;
     });
@@ -41,6 +44,7 @@ export const Page = memo(({ className, children, onScrollEnd, isLoading }: PageP
             ref={wrapperRef}
             className={classNames(cls.Page, {}, [className])}
             onScroll={onScroll}
+            data-testid={props['data-testid'] ?? 'Page'}
         >
             {children}
             {onScrollEnd ? <div ref={triggerRef} className={cls.trigger} /> : null}
