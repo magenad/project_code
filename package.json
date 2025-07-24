@@ -28,9 +28,8 @@
     "generate:slice": "node ./scripts/createSlice/index.js",
     "postinstall": "node ./scripts/clear-cache.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/utimur/production_project_code_source.git"
+  "lint-staged": {
+    "**/*.{ts,tsx}": "eslint"
   },
   "keywords": [],
   "author": "",
@@ -99,6 +98,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "jest-html-reporters": "^3.1.7",
     "json-server": "^0.17.0",
+    "lint-staged": "^13.0.3",
     "loki": "^0.35.1",
     "mini-css-extract-plugin": "2.5.3",
     "reg-cli": "^0.17.7",
