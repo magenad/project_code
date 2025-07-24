@@ -4,7 +4,6 @@ node_modules
 /storybook-static/
 /.loki/*.*
 !/.loki/reference/
-package-lock.json
 /extractedTranslations
 .npmrc
 /reports
