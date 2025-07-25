@@ -4,7 +4,7 @@ import svgr from 'vite-plugin-svgr';
 
 // https://vite.dev/config/
 export default defineConfig({
-    plugins: [svgr({ exportAsDefault: true }), react()],
+    plugins: [svgr(), react()],
     resolve: {
         alias: [
             { find: '@', replacement: '/src' }]
