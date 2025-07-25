@@ -7,7 +7,6 @@ import NotificationIcon from '../../../../assets/icons/notification-20-20.svg';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 // eslint-disable-next-line my/layer-imports
 import { Notification, NotificationList } from '@/entities/Notification';
-import withMock from 'storybook-addon-mock';
 
 const notification: Notification = { id: '1', title: 'Title', description: 'Description' };
 export default {
@@ -17,8 +16,7 @@ export default {
         backgroundColor: { control: 'color' }
     }, decorators: [
         Story => <div style={{ paddingLeft: '550px', paddingTop: '350px', position: 'absolute' }}><Story /></div>,
-        StoreDecorator({}),
-        withMock
+        StoreDecorator({})
     ],
     args: {
         trigger: (<Button theme={ThemeButton.CLEAR}>

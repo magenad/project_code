@@ -5,7 +5,6 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import avatar from '@/shared/assets/tests/storybook.jpg';
-import withMock from 'storybook-addon-mock';
 import { Theme } from '@/shared/const/theme';
 
 export default {
@@ -80,8 +79,7 @@ Normal.decorators = [
                 avatar
             }
         }, user: { authData: { id: '1' } }
-    }),
-    withMock
+    })
 ];
 Normal.parameters = {
     loki: { skip: true }

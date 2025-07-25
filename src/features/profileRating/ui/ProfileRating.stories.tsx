@@ -1,4 +1,3 @@
-import withMock from 'storybook-addon-mock';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import ProfileRating from './ProfileRating';
@@ -12,9 +11,8 @@ export default {
         backgroundColor: { control: 'color' }
     },
     decorators: [
-        StoreDecorator({ user: { authData: { id: '1' } } }),
-        withMock
-    ],
+        StoreDecorator({ user: { authData: { id: '1' } } })
+    ]
     // parameters: {
     //     mockData: {
     //         // url: `${_API__}/profile-ratings?userId=1&profileId=1`,
@@ -40,21 +38,23 @@ const Template: ComponentStory<typeof ProfileRating> = (args) => <ProfileRating 
 export const Normal = Template.bind({});
 Normal.args = { profileId: '1' };
 Normal.parameters = {
-    mockData: {
-        // url: `${_API__}/profile-ratings?userId=1&profileId=1`,
-        url: 'http://testapi.ru/profile-ratings',
-        method: 'GET',
-        status: 200,
-        response: [
-            {
-                userId: '1',
-                profileId: '2',
-                rate: 3,
-                feedback: 'fsffg',
-                id: '1'
-            }
-        ]
-    }
+    mockData: [
+        {
+            // url: `${_API__}/profile-ratings?userId=1&profileId=1`,
+            url: 'http://testapi.ru/profile-ratings',
+            method: 'GET',
+            status: 200,
+            response: [
+                {
+                    userId: '1',
+                    profileId: '2',
+                    rate: 3,
+                    feedback: 'fsffg',
+                    id: '1'
+                }
+            ]
+        }
+    ]
 };
 
 

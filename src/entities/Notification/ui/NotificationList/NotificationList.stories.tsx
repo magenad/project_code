@@ -3,7 +3,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { NotificationList } from './NotificationList';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { Notification } from '../../model/types/notification';
-import withMock from 'storybook-addon-mock';
 
 export default {
     title: 'entities/Notification/NotificationList',
@@ -12,8 +11,7 @@ export default {
         backgroundColor: { control: 'color' }
     },
     decorators:[
-        StoreDecorator({}),
-        withMock
+        StoreDecorator({})
     ]
 } as ComponentMeta<typeof NotificationList>;
 

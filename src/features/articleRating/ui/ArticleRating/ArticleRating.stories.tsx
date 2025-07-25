@@ -2,7 +2,6 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import ArticleRating from './ArticleRating';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-import withMock from 'storybook-addon-mock';
 
 export default {
     title: 'features/ArticleRating',
@@ -11,8 +10,7 @@ export default {
         backgroundColor: { control: 'color' }
     },
     decorators: [
-        StoreDecorator({ user: { authData: { id: '1' } } }),
-        withMock
+        StoreDecorator({ user: { authData: { id: '1' } } })
     ]
 } as ComponentMeta<typeof ArticleRating>;
 
