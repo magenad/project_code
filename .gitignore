@@ -6,4 +6,4 @@ node_modules
 !/.loki/reference/
 /extractedTranslations
 .npmrc
-/reports
+/reports/unit
