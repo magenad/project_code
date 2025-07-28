@@ -38,7 +38,8 @@
       "module": "CommonJS"
     }
   },
-//  "include": [
+  "exclude": ["node_modules","./cypress", "./cypress.config.ts"]
+  //  "include": [
 //    "./config/jest/setupTests.ts"
 //  ]
 }

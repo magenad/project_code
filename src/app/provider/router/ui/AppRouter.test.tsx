@@ -5,11 +5,12 @@ import { screen } from '@testing-library/react';
 import { UserRole } from '@/entities/User';
 
 describe('app/router/AppRouter', () => {
-    test('Страница должна отрендериться', async () => {
-        componentRender(<AppRouter />, { route: getRouteAbout() });
-        const page = await screen.findByTestId('AboutPage');
-        expect(page).toBeInTheDocument();
-    });
+    test('Страница должна отрендериться',
+        async () => {
+            componentRender(<AppRouter />, { route: getRouteAbout() });
+            const page = await screen.findByTestId('AboutPage');
+            expect(page).toBeInTheDocument();
+        });
     test('Страница не найдена', async () => {
         componentRender(<AppRouter />, { route: '/fghgfgjgjggj' });
         const page = await screen.findByTestId('NotFoundPage');
@@ -27,6 +28,7 @@ describe('app/router/AppRouter', () => {
                 user: { _inited: true, authData: {} }
             }
         });
+        await new Promise((r) => setTimeout(r, 100));
         const page = await screen.findByTestId('ProfilePage');
         expect(page).toBeInTheDocument();
     });
@@ -47,6 +49,7 @@ describe('app/router/AppRouter', () => {
                 user: { _inited: true, authData: { roles: [UserRole.ADMIN] } }
             }
         });
+        await new Promise((r) => setTimeout(r, 100));
         const page = await screen.findByTestId('AdminPanelPage');
         expect(page).toBeInTheDocument();
     });
