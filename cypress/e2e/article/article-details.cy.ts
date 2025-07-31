@@ -24,6 +24,7 @@ describe('Пользователь заходит на страницу стат
         cy.getByTestId('CommentCard.Content').should('have.length',1);
     });
     it('И ставит оценку', () => {
+        cy.intercept('GET','**/articles/*',{ fixture:'article-details' });
         cy.getByTestId('ArticleDetails.info').should('exist');
         cy.getByTestId('RatingCard').should('exist').scrollIntoView();
         cy.setRate(5,'feedback');
