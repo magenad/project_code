@@ -42,6 +42,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
         <div
             className={classNames(cls[view], {}, [className])}
+            data-testid={'ArticleList'}
         >
             {
                 articles.map((item) => (
@@ -51,6 +52,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                         target={target}
                         key={item.id}
                         className={cls.card}
+                        data-testid={'ArticleListItem'}
                     />
                 ))}
 

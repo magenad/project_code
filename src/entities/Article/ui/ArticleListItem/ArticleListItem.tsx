@@ -30,7 +30,11 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     const types = <Text text={article.type.join(', ')} className={cls.types} />;
     const views = (
         <>
-            <Text text={String(article.views)} className={cls.views} />
+            <Text
+                text={String(article.views)}
+                className={cls.views}
+                data-testid={'ArticleListItem.Views'}
+            />
             <Icon Svg={EyeIcon} />
         </>
     );
@@ -38,9 +42,13 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         return (
             <AppLink
                 target={target}
+                data-testid={'ArticleListItem'}
                 to={getRouteArticleDetails(article.id)}
                 className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-                <Card className={cls.card}>
+                <Card
+                    className={cls.card}
+                    data-testid={'ArticleListItem.Card'}
+                >
                     <div className={cls.imageWrapper}>
                         <AppImage
                             fallback={<Skeleton width={200} height={200}/>}
@@ -50,7 +58,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         />
                         <Text text={article.createdAt} className={cls.data} />
                     </div>
-                    <div className={cls.infoWrapper}>
+                    <div
+                        className={cls.infoWrapper}
+                        data-testid={'ArticleListItem.Card.Info'}
+                    >
                         {types}
                         {views}
                     </div>
@@ -61,7 +72,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     }
     const textBlock = article.blocks.find(block => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
     return (
-        <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+        <div
+            className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+            data-testid={'ArticleListItem'}
+        >
             <Card className={cls.card}>
                 <div className={cls.header}>
                     <Avatar size={30} src={article.user.avatar} />

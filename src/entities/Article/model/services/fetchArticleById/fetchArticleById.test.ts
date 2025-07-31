@@ -88,7 +88,7 @@ describe('fetchArticleById.test', () => {
         expect(result.meta.requestStatus).toBe('fulfilled');
         expect(result.payload).toEqual(article);
     });
-    test('login error', async () => {
+    test('common error', async () => {
         const thunk = new TestAsyncThunk(fetchArticleById);
         thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
         const result = await thunk.callThunk('1');

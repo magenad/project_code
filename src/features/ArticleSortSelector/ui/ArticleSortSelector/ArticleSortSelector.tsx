@@ -27,13 +27,17 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
         { value: ArticleSortField.VIEWS, content: t('просмотрам') }
     ], [t]);
     return (
-        <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
+        <div
+            className={classNames(cls.ArticleSortSelector, {}, [className])}
+            data-testid={'ArticleSortSelector'}
+        >
 
             <Select<ArticleSortField>
                 value={sort}
                 options={sortFieldOptions}
                 label={t('Сортировать ПО')}
                 onChange={onChangeSort}
+                data-testid={'ArticleSortSelector.ArticleSortField'}
             />
             <Select<SortOrder>
                 value={order}
