@@ -40,6 +40,5 @@ export const AppImage = memo((props: AppImageProps) => {
     if (hasError && errorFallback) {
         return errorFallback;
     }
-    // eslint-disable-next-line
     return <img className={className} alt={alt} src={src} {...otherProps} />;
 });

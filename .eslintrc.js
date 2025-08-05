@@ -87,10 +87,9 @@ module.exports = {
                 ],
             },
         ],
-        'react/jsx-max-props-per-line': [
-            'error',
-            { maximum: { single: 3, multi: 1 } },
-        ],
+        'react/jsx-first-prop-new-line': [2, 'multiline'],
+        'react/jsx-max-props-per-line': [2, { maximum: 1, when: 'multiline' }],
+        'react/jsx-closing-bracket-location': [2, 'tag-aligned'],
     },
     overrides: [
         {
