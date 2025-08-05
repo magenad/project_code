@@ -16,6 +16,3 @@ Primary.args = {
     placeholder: 'Type text',
     value: 'text123',
 };
-
-
-

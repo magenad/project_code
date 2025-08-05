@@ -6,7 +6,6 @@ import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 import { SortOrder } from '@/shared/types';
 import { ArticleSortField, ArticleType } from '@/entities/Article';
 
-
 export const initArticlesPage = createAsyncThunk<
     void,
     URLSearchParams,
@@ -21,7 +20,8 @@ export const initArticlesPage = createAsyncThunk<
         const typeFromUrl = searchParams.get('type') as ArticleType;
         if (orderFromUrl) dispatch(articlesPageActions.setOrder(orderFromUrl));
         if (sortFromUrl) dispatch(articlesPageActions.setSort(sortFromUrl));
-        if (searchFromUrl) dispatch(articlesPageActions.setSearch(searchFromUrl));
+        if (searchFromUrl)
+            dispatch(articlesPageActions.setSearch(searchFromUrl));
         if (typeFromUrl) dispatch(articlesPageActions.setType(typeFromUrl));
         dispatch(articlesPageActions.initState());
         dispatch(fetchArticlesList({}));

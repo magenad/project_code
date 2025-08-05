@@ -8,16 +8,19 @@ export default {
     title: 'entities/Notification/NotificationList',
     component: NotificationList,
     argTypes: {
-        backgroundColor: { control: 'color' }
+        backgroundColor: { control: 'color' },
     },
-    decorators:[
-        StoreDecorator({})
-    ]
+    decorators: [StoreDecorator({})],
 } as ComponentMeta<typeof NotificationList>;
 
-
-const Template: ComponentStory<typeof NotificationList> = (args) => <NotificationList {...args} />;
-const notification: Notification = { id: '1', title: 'Title', description: 'Description' };
+const Template: ComponentStory<typeof NotificationList> = (args) => (
+    <NotificationList {...args} />
+);
+const notification: Notification = {
+    id: '1',
+    title: 'Title',
+    description: 'Description',
+};
 export const Normal = Template.bind({});
 Normal.args = {};
 Normal.parameters = {
@@ -29,10 +32,8 @@ Normal.parameters = {
             response: [
                 { ...notification },
                 { ...notification, id: '2' },
-                { ...notification, id: '3' }
-            ]
-        }
-    ]
+                { ...notification, id: '3' },
+            ],
+        },
+    ],
 };
-
-

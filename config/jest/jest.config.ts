@@ -71,7 +71,7 @@ const config: Config = {
     globals: {
         _IS_DEV__: true,
         _API__: '',
-        _PROJECT__: 'jest'
+        _PROJECT__: 'jest',
     },
 
     // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
@@ -200,15 +200,18 @@ const config: Config = {
 
     // Whether to use watchman for file crawling
     // watchman: true,
-    'reporters': [
+    reporters: [
         'default',
-        ['jest-html-reporters', {
-            'publicPath': '<rootDir>/reports/unit',
-            'filename': 'report.html',
-            'openReport': false,
-            'inlineSource': true
-        }]
-    ]
+        [
+            'jest-html-reporters',
+            {
+                publicPath: '<rootDir>/reports/unit',
+                filename: 'report.html',
+                openReport: false,
+                inlineSource: true,
+            },
+        ],
+    ],
 };
 
 export default config;

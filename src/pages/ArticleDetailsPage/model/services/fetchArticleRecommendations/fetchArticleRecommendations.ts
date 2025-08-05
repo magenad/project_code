@@ -3,7 +3,6 @@ import { ThunkConfig } from '@/app/provider/StoreProvider';
 import { Article } from '@/entities/Article';
 import { addQueryParams } from '@/shared/lib/url/addQueryParams/addQueryParams';
 
-
 export const fetchArticleRecommendations = createAsyncThunk<
     Article[],
     void,
@@ -11,11 +10,11 @@ export const fetchArticleRecommendations = createAsyncThunk<
 >('articleDetailsPage/fetchArticlesRecommendations', async (_, thunkAPI) => {
     const { extra, rejectWithValue } = thunkAPI;
     try {
-        addQueryParams({  });
+        addQueryParams({});
         const response = await extra.api.get<Article[]>('/articles', {
             params: {
-                _limit: 4
-            }
+                _limit: 4,
+            },
         });
         if (!response.data) throw new Error();
         return response.data;

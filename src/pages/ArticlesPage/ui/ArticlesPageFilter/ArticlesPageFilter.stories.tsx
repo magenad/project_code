@@ -8,32 +8,32 @@ export default {
     title: 'pages/ArticlesPage/ArticlesPageFilter',
     component: ArticlesPageFilter,
     argTypes: {
-        backgroundColor: { control: 'color' }
+        backgroundColor: { control: 'color' },
     },
-    decorators: [StoreDecorator({
-        articlesPage: {
-            isLoading: false,
-            error: undefined,
-            ids: [],
-            entities: {},
-            view: ArticleView.SMALL,
-            page: 1,
-            limit: 9,
-            hasMore: true,
-            _inited: false,
-            sort: ArticleSortField.CREATED,
-            search: '',
-            order: 'asc',
-            type: ArticleType.ALL
-        }
-    })
-    ]
+    decorators: [
+        StoreDecorator({
+            articlesPage: {
+                isLoading: false,
+                error: undefined,
+                ids: [],
+                entities: {},
+                view: ArticleView.SMALL,
+                page: 1,
+                limit: 9,
+                hasMore: true,
+                _inited: false,
+                sort: ArticleSortField.CREATED,
+                search: '',
+                order: 'asc',
+                type: ArticleType.ALL,
+            },
+        }),
+    ],
 } as ComponentMeta<typeof ArticlesPageFilter>;
 
-
-const Template: ComponentStory<typeof ArticlesPageFilter> = (args) => <ArticlesPageFilter {...args} />;
+const Template: ComponentStory<typeof ArticlesPageFilter> = (args) => (
+    <ArticlesPageFilter {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};
-
-

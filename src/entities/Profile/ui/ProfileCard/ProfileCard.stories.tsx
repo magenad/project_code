@@ -8,8 +8,8 @@ export default {
     title: 'entities/ProfileCard',
     component: ProfileCard,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof ProfileCard>;
 
 const Template: ComponentStory<typeof ProfileCard> = (args) => (
@@ -26,19 +26,17 @@ Primary.args = {
         lastname: 'Ivanov',
         currency: Currency.RUB,
         city: 'Moscow',
-        avatar
-    }
+        avatar,
+    },
 };
 Primary.parameters = {
-    loki: { skip: true }
-
+    loki: { skip: true },
 };
 export const WithError = Template.bind({});
 WithError.args = {
-    error: 'true'
+    error: 'true',
 };
 export const Loading = Template.bind({});
 Loading.args = {
-    isLoading: true
+    isLoading: true,
 };
-

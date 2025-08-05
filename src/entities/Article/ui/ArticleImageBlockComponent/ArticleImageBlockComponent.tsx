@@ -6,16 +6,22 @@ import { Text, TextAlign } from '@/shared/ui/Text';
 
 interface ArticleImageBlockComponentProps {
     className?: string;
-    block:ArticleImageBlock;
+    block: ArticleImageBlock;
 }
 
-export const ArticleImageBlockComponent = memo(({ className,block }: ArticleImageBlockComponentProps) => {
-    return (
-        <div className={classNames(cls.ArticleImageBlockComponent, {}, [className])}>
-            <img src={block.src} alt={block.title} className={cls.img}/>
-            {block.title && (
-                <Text text={block.title} align={TextAlign.CENTER}/>
-            )}
-        </div>
-    );
-});
+export const ArticleImageBlockComponent = memo(
+    ({ className, block }: ArticleImageBlockComponentProps) => {
+        return (
+            <div
+                className={classNames(cls.ArticleImageBlockComponent, {}, [
+                    className,
+                ])}
+            >
+                <img src={block.src} alt={block.title} className={cls.img} />
+                {block.title && (
+                    <Text text={block.title} align={TextAlign.CENTER} />
+                )}
+            </div>
+        );
+    },
+);

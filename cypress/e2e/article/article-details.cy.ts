@@ -2,8 +2,8 @@ let currentArticleId = '';
 describe('Пользователь заходит на страницу статьи', () => {
     beforeEach(() => {
         cy.login();
-        cy.createArticle().then(article=>{
-            currentArticleId=article.id;
+        cy.createArticle().then((article) => {
+            currentArticleId = article.id;
             cy.visit(`articles/${article.id}`);
         });
     });
@@ -21,13 +21,13 @@ describe('Пользователь заходит на страницу стат
         cy.getByTestId('ArticleDetails.info').should('exist');
         cy.getByTestId('AddCommentForm').should('exist').scrollIntoView();
         cy.addComment('text');
-        cy.getByTestId('CommentCard.Content').should('have.length',1);
+        cy.getByTestId('CommentCard.Content').should('have.length', 1);
     });
     it('И ставит оценку', () => {
-        cy.intercept('GET','**/articles/*',{ fixture:'article-details' });
+        cy.intercept('GET', '**/articles/*', { fixture: 'article-details' });
         cy.getByTestId('ArticleDetails.info').should('exist');
         cy.getByTestId('RatingCard').should('exist').scrollIntoView();
-        cy.setRate(5,'feedback');
-        cy.get('[data-selected=true]').should('have.length',5);
+        cy.setRate(5, 'feedback');
+        cy.get('[data-selected=true]').should('have.length', 5);
     });
 });

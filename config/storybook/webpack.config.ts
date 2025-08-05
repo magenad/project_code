@@ -10,14 +10,14 @@ export default ({ config }: { config: webpack.Configuration }) => {
         html: '',
         entry: '',
         src: path.resolve(__dirname, '..', '..', 'src'),
-        locales: path.resolve(__dirname,'public','locales'),
-        buildLocales:path.resolve(__dirname, 'build','locales'),
+        locales: path.resolve(__dirname, 'public', 'locales'),
+        buildLocales: path.resolve(__dirname, 'build', 'locales'),
     };
     config?.resolve?.modules?.unshift(paths.src);
     config?.resolve?.extensions?.push('.ts', '.tsx');
     config.resolve!.alias = {
         ...config!.resolve!.alias,
-        '@': paths.src
+        '@': paths.src,
     };
     // eslint-disable-next-line no-param-reassign
     // @ts-ignore
@@ -39,8 +39,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
         new DefinePlugin({
             _IS_DEV__: true,
             _API__: JSON.stringify('http://testapi.ru'),
-            _PROJECT__: JSON.stringify('storybook')
-        })
+            _PROJECT__: JSON.stringify('storybook'),
+        }),
     );
 
     return config;

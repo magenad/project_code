@@ -28,7 +28,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                     collapsed={collapsed}
                 />
             )),
-        [collapsed, sidebarItemsList]
+        [collapsed, sidebarItemsList],
     );
     return (
         <aside

@@ -11,13 +11,11 @@ import { StateSchema } from '@/app/provider/StoreProvider';
 import { useThrottle } from '@/shared/lib/hooks/UseThrottle/UseThrottle';
 import { TestProps } from '@/shared/types/tests';
 
-
 interface PageProps extends TestProps {
     className?: string;
     children: ReactNode;
     onScrollEnd?: () => void;
     isLoading?: boolean;
-
 }
 
 export const PAGE_ID = 'PAGE_ID';
@@ -28,14 +26,25 @@ export const Page = memo((props: PageProps) => {
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const dispatch = useAppDispatch();
     const { pathname } = useLocation();
-    const scrollPosition = useSelector((state: StateSchema) => getUIScrollByPath(state, pathname));
+    const scrollPosition = useSelector((state: StateSchema) =>
+        getUIScrollByPath(state, pathname),
+    );
 
-    useInfiniteScroll({ triggerRef, wrapperRef, callback: isLoading ? undefined : onScrollEnd });
+    useInfiniteScroll({
+        triggerRef,
+        wrapperRef,
+        callback: isLoading ? undefined : onScrollEnd,
+    });
     useInitialEffect(() => {
         wrapperRef.current.scrollTop = scrollPosition;
     });
     const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-        dispatch(uiActions.setScrollPosition({ path: pathname, position: e.currentTarget.scrollTop }));
+        dispatch(
+            uiActions.setScrollPosition({
+                path: pathname,
+                position: e.currentTarget.scrollTop,
+            }),
+        );
         // console.log(e.currentTarget.scrollTop);
     }, 500);
     return (
@@ -47,7 +56,9 @@ export const Page = memo((props: PageProps) => {
             data-testid={props['data-testid'] ?? 'Page'}
         >
             {children}
-            {onScrollEnd ? <div ref={triggerRef} className={cls.trigger} /> : null}
+            {onScrollEnd ? (
+                <div ref={triggerRef} className={cls.trigger} />
+            ) : null}
         </main>
     );
 });

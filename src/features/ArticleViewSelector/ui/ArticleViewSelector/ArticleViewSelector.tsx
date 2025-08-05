@@ -17,31 +17,32 @@ interface ArticleViewSelectorProps {
 const viewTypes = [
     {
         view: ArticleView.SMALL,
-        icon: TiledIcon
-    }, {
+        icon: TiledIcon,
+    },
+    {
         view: ArticleView.BIG,
-        icon: ListIcon
-    }
+        icon: ListIcon,
+    },
 ];
 export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
     const { className, onViewClick, view } = props;
     const { t } = useTranslation();
     const onClick = (newView: ArticleView) => () => {
         onViewClick?.(newView);
-
     };
     return (
         <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
-            {viewTypes.map(viewType => (
+            {viewTypes.map((viewType) => (
                 <Button
                     theme={ThemeButton.CLEAR}
                     key={viewType.view}
                     onClick={onClick(viewType.view)}
-
                 >
                     <Icon
                         Svg={viewType.icon}
-                        className={classNames('', { [cls.notSelected]: viewType.view !== view })}
+                        className={classNames('', {
+                            [cls.notSelected]: viewType.view !== view,
+                        })}
                     />
                 </Button>
             ))}

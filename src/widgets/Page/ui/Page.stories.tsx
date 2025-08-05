@@ -7,15 +7,12 @@ export default {
     title: 'widget/Page',
     component: Page,
     argTypes: {
-        backgroundColor: { control: 'color' }
+        backgroundColor: { control: 'color' },
     },
-    decorators: [StoreDecorator({})]
+    decorators: [StoreDecorator({})],
 } as ComponentMeta<typeof Page>;
-
 
 const Template: ComponentStory<typeof Page> = (args) => <Page {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};
-
-

@@ -8,14 +8,14 @@ export default {
     title: 'features/ArticleRecommendationsList',
     component: ArticleRecommendationsList,
     argTypes: {
-        backgroundColor: { control: 'color' }
+        backgroundColor: { control: 'color' },
     },
-    decorators: [
-        StoreDecorator({})
-    ]
+    decorators: [StoreDecorator({})],
 } as ComponentMeta<typeof ArticleRecommendationsList>;
 
-const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => <ArticleRecommendationsList {...args} />;
+const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => (
+    <ArticleRecommendationsList {...args} />
+);
 const article: Article = {
     id: '1',
     img: '',
@@ -25,7 +25,7 @@ const article: Article = {
     blocks: [],
     type: [],
     title: 'title',
-    subtitle: 'subTitle'
+    subtitle: 'subTitle',
 };
 export const Normal = Template.bind({});
 Normal.args = {};
@@ -38,8 +38,8 @@ Normal.parameters = {
             response: [
                 { ...article },
                 { ...article, id: '2' },
-                { ...article, id: '3' }
-            ]
-        }
-    ]
+                { ...article, id: '3' },
+            ],
+        },
+    ],
 };

@@ -10,7 +10,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [StoreDecorator({})]
+    decorators: [StoreDecorator({})],
 } as ComponentMeta<typeof ForbiddenPage>;
 
 const Template: ComponentStory<typeof ForbiddenPage> = () => <ForbiddenPage />;

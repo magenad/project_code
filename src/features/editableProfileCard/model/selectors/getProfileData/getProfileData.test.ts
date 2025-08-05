@@ -5,14 +5,14 @@ import { Currency } from '@/entities/Currency';
 
 describe('getProfileData.test', () => {
     test('should work with filled state', () => {
-        const data =  {
+        const data = {
             username: 'admin',
             age: 22,
             country: Country.Russia,
             first: 'Ivan',
             lastname: 'Ivanov',
             currency: Currency.RUB,
-            city: 'Moscow'
+            city: 'Moscow',
         };
         const state: DeepPartial<StateSchema> = {
             profile: {

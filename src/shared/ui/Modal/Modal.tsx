@@ -19,29 +19,33 @@ export const Modal = ({
     children,
     isOpen = false,
     onClose,
-    lazy
+    lazy,
 }: ModalProps) => {
-    const { close,isMounted,isClosing } = useModal({
+    const { close, isMounted, isClosing } = useModal({
         animationDelay: 300,
         onClose,
-        isOpen
+        isOpen,
     });
     const { theme } = useTheme();
 
     const mods: Mods = {
         [cls.opened]: isOpen,
-        [cls.isClosing]: isClosing
+        [cls.isClosing]: isClosing,
     };
     if (lazy && !isMounted) {
         return null;
     }
     return (
         <Portal>
-            <div className={classNames(cls.Modal, mods, [className, theme, 'app_modal'])}>
+            <div
+                className={classNames(cls.Modal, mods, [
+                    className,
+                    theme,
+                    'app_modal',
+                ])}
+            >
                 <Overlay onClick={close} />
-                <div className={cls.content}>
-                    {children}
-                </div>
+                <div className={cls.content}>{children}</div>
             </div>
         </Portal>
     );

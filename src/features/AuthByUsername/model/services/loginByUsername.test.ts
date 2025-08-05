@@ -40,7 +40,7 @@ describe('loginByUsername.test', () => {
             password: '123',
         });
         expect(thunk.dispatch).toHaveBeenCalledWith(
-            userActions.setAuthData(userValue)
+            userActions.setAuthData(userValue),
         );
         expect(thunk.dispatch).toHaveBeenCalledTimes(3);
         expect(thunk.api.post).toHaveBeenCalled();

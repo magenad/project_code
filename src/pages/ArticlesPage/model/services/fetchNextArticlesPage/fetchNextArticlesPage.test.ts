@@ -4,7 +4,6 @@ import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 
 jest.mock('../fetchArticlesList/fetchArticlesList');
 describe('fetchNextArticlePage.test', () => {
-
     test('success', async () => {
         const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
             articlesPage: {
@@ -13,8 +12,8 @@ describe('fetchNextArticlePage.test', () => {
                 entities: {},
                 limit: 5,
                 isLoading: false,
-                hasMore: true
-            }
+                hasMore: true,
+            },
         });
 
         await thunk.callThunk();
@@ -29,8 +28,8 @@ describe('fetchNextArticlePage.test', () => {
                 entities: {},
                 limit: 5,
                 isLoading: false,
-                hasMore: false
-            }
+                hasMore: false,
+            },
         });
 
         await thunk.callThunk();
@@ -45,8 +44,8 @@ describe('fetchNextArticlePage.test', () => {
                 entities: {},
                 limit: 5,
                 isLoading: true,
-                hasMore: true
-            }
+                hasMore: true,
+            },
         });
 
         await thunk.callThunk();

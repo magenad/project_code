@@ -4,5 +4,5 @@ export const mapDirectionClass: Record<DropdownDirection, string> = {
     'bottom left': popupCls.optionsBottomLeft,
     'bottom right': popupCls.optionsBottomRight,
     'top left': popupCls.optionsTopLeft,
-    'top right': popupCls.optionsTopRight
+    'top right': popupCls.optionsTopRight,
 };

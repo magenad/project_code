@@ -6,21 +6,21 @@ import { EditableProfileCard } from '@/features/editableProfileCard';
 import { useParams } from 'react-router-dom';
 import { ProfileRating } from '@/features/profileRating';
 
-
 interface ProfilePageProps {
     className?: string;
 }
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
-
     const { id } = useParams<{ id: string }>();
     return (
-        <Page data-testid={'ProfilePage'} className={classNames('', {}, [className])}>
-            <VStack gap="16" max>
+        <Page
+            data-testid={'ProfilePage'}
+            className={classNames('', {}, [className])}
+        >
+            <VStack gap='16' max>
                 <EditableProfileCard id={id} />
-                <ProfileRating profileId={id}/>
+                <ProfileRating profileId={id} />
             </VStack>
-
         </Page>
     );
 };

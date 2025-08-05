@@ -3,11 +3,10 @@ import { getProfileIsLoading } from './getProfileIsLoading';
 
 describe('getProfileIsLoading.test', () => {
     test('should work with filled state', () => {
-
         const state: DeepPartial<StateSchema> = {
-            profile:{
-                isLoading:true
-            }
+            profile: {
+                isLoading: true,
+            },
         };
 
         expect(getProfileIsLoading(state as StateSchema)).toEqual(true);

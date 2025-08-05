@@ -10,33 +10,40 @@ const sharedUiDirectory = project.getDirectory(uiPath);
 const componentsDirs = sharedUiDirectory?.getDirectories();
 
 function isAbsolute(value: string) {
-    const layers = ['app', 'shared', 'entities', 'features', 'widgets', 'pages'];
+    const layers = [
+        'app',
+        'shared',
+        'entities',
+        'features',
+        'widgets',
+        'pages',
+    ];
     return layers.some((layer) => value.startsWith(layer));
 }
 
-componentsDirs?.forEach(directory => {
-
+componentsDirs?.forEach((directory) => {
     const indexFilePath = directory.getPath() + '/index.ts';
     const indexFile = directory.getSourceFile(indexFilePath);
     if (!indexFile) {
         const sourceCode = `export * from './${directory.getBaseName()}';\r\n`;
-        const file = directory.createSourceFile(indexFilePath, sourceCode, { overwrite: true });
+        const file = directory.createSourceFile(indexFilePath, sourceCode, {
+            overwrite: true,
+        });
         file.saveSync();
     }
 });
 
-files.forEach(sourceFile => {
-
-    const importDeclarations =     sourceFile.getImportDeclarations();
-    importDeclarations.forEach(importDeclaration=>{
+files.forEach((sourceFile) => {
+    const importDeclarations = sourceFile.getImportDeclarations();
+    importDeclarations.forEach((importDeclaration) => {
         const value = importDeclaration.getModuleSpecifierValue();
-        const valueWithoutAlias = value.replace('@/','');
+        const valueWithoutAlias = value.replace('@/', '');
         const segments = valueWithoutAlias.split('/');
-        const isSharedLayer = segments?.[0] ==='shared';
-        const isUiSlice = segments?.[1] ==='ui';
+        const isSharedLayer = segments?.[0] === 'shared';
+        const isUiSlice = segments?.[1] === 'ui';
 
-        if(isAbsolute(valueWithoutAlias) && isSharedLayer && isUiSlice){
-            const result = valueWithoutAlias.split('/').splice(0,3).join('/');
+        if (isAbsolute(valueWithoutAlias) && isSharedLayer && isUiSlice) {
+            const result = valueWithoutAlias.split('/').splice(0, 3).join('/');
             importDeclaration.setModuleSpecifier(`@/${result}`);
         }
     });

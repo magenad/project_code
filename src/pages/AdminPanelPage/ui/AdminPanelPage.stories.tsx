@@ -10,10 +10,12 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [StoreDecorator({})]
+    decorators: [StoreDecorator({})],
 } as ComponentMeta<typeof AdminPanelPage>;
 
-const Template: ComponentStory<typeof AdminPanelPage> = () => <AdminPanelPage />;
+const Template: ComponentStory<typeof AdminPanelPage> = () => (
+    <AdminPanelPage />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};

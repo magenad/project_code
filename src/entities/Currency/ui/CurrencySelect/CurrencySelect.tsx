@@ -13,37 +13,41 @@ interface CurrencySelectProps {
 const options = [
     { value: Currency.RUB, content: Currency.RUB },
     { value: Currency.EUR, content: Currency.EUR },
-    { value: Currency.USD, content: Currency.USD }
+    { value: Currency.USD, content: Currency.USD },
 ];
 
-export const CurrencySelect = memo(({ className, value, onChange,readonly }: CurrencySelectProps) => {
-    const { t } = useTranslation();
-    const onChangeHandler = useCallback((value: string) => {
-        onChange?.(value as Currency);
-    }, [onChange]);
+export const CurrencySelect = memo(
+    ({ className, value, onChange, readonly }: CurrencySelectProps) => {
+        const { t } = useTranslation();
+        const onChangeHandler = useCallback(
+            (value: string) => {
+                onChange?.(value as Currency);
+            },
+            [onChange],
+        );
 
-    return (
-        <ListBox
-            className={className}
-            value={value}
-            defaultValue={t('Укажите валюту')}
-            items={options}
-            onChange={onChangeHandler}
-            readonly={readonly}
-            direction={'top right'}
-            label={t('Указать валюту')}
-        />
-    );
+        return (
+            <ListBox
+                className={className}
+                value={value}
+                defaultValue={t('Укажите валюту')}
+                items={options}
+                onChange={onChangeHandler}
+                readonly={readonly}
+                direction={'top right'}
+                label={t('Указать валюту')}
+            />
+        );
 
-
-    // return (
-    //     <Select
-    //         className={classNames('', {}, [className])}
-    //         label={t('Указать валюту')}
-    //         options={options}
-    //         value={value}
-    //         onChange={onChangeHandler}
-    //         readonly = {readonly}
-    //     />
-    // );
-});
+        // return (
+        //     <Select
+        //         className={classNames('', {}, [className])}
+        //         label={t('Указать валюту')}
+        //         options={options}
+        //         value={value}
+        //         onChange={onChangeHandler}
+        //         readonly = {readonly}
+        //     />
+        // );
+    },
+);

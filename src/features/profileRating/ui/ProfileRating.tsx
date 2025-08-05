@@ -17,31 +17,38 @@ const ProfileRating = memo((props: ProfileRatingProps) => {
     const userData = useSelector(getUserAuthData);
     const { data, isLoading } = useGetProfileRating({
         profileId: profileId ?? '',
-        userId: userData?.id ?? ''
+        userId: userData?.id ?? '',
     });
     const [rateArticleMutation] = useRateProfile();
-    const handleRateArticle = useCallback((starsCount: number, feedback?: string) => {
-        try {
-            rateArticleMutation({
-                userId: userData?.id ?? '',
-                profileId: profileId ?? '',
-                rate: starsCount,
-                feedback
-            })
-            ;
-        } catch (e) {
-            console.log(e);
-        }
-
-    }, [profileId, rateArticleMutation, userData?.id]);
-    const onCancel = useCallback((starsCount: number) => {
-        handleRateArticle(starsCount);
-    }, [handleRateArticle]);
-    const onAccept = useCallback((starsCount: number, feedback?: string) => {
-        handleRateArticle(starsCount, feedback);
-    }, [handleRateArticle]);
+    const handleRateArticle = useCallback(
+        (starsCount: number, feedback?: string) => {
+            try {
+                rateArticleMutation({
+                    userId: userData?.id ?? '',
+                    profileId: profileId ?? '',
+                    rate: starsCount,
+                    feedback,
+                });
+            } catch (e) {
+                console.log(e);
+            }
+        },
+        [profileId, rateArticleMutation, userData?.id],
+    );
+    const onCancel = useCallback(
+        (starsCount: number) => {
+            handleRateArticle(starsCount);
+        },
+        [handleRateArticle],
+    );
+    const onAccept = useCallback(
+        (starsCount: number, feedback?: string) => {
+            handleRateArticle(starsCount, feedback);
+        },
+        [handleRateArticle],
+    );
     if (isLoading) {
-        return <Skeleton width="100%" height={120} />;
+        return <Skeleton width='100%' height={120} />;
     }
     const rating = data?.[0];
 
@@ -54,9 +61,7 @@ const ProfileRating = memo((props: ProfileRatingProps) => {
             title={t('Оцените пользователя')}
             feedbackTitle={t('Оставьте свой отзыв о пользователе.')}
             hasFeedback
-
         />
-
     );
 });
 export default ProfileRating;

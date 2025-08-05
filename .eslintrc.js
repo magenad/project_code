@@ -3,80 +3,102 @@ module.exports = {
     env: {
         browser: true,
         es2021: true,
-        jest: true
+        jest: true,
     },
     extends: [
         'plugin:react/recommended',
         'plugin:i18next/recommended',
         'plugin:storybook/recommended',
-        'plugin:react/jsx-runtime'
+        'plugin:react/jsx-runtime',
+        'prettier',
     ],
-    // 'overrides': [
-    //     {
-    //         'env': {
-    //             'node': true
-    //         },
-    //         'files': [
-    //             '.eslintrc.{js,cjs}'
-    //         ],
-    //         'parserOptions': {
-    //             'sourceType': 'script'
-    //         }
-    //     }
-    // ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
-            jsx: true
+            jsx: true,
         },
         ecmaVersion: 'latest',
-        sourceType: 'module'
+        sourceType: 'module',
     },
-    plugins: ['@typescript-eslint', 'react', 'i18next', 'react-hooks', 'my', 'eslint-plugin-unused-imports'],
+    plugins: [
+        '@typescript-eslint',
+        'react',
+        'i18next',
+        'react-hooks',
+        'my',
+        'eslint-plugin-unused-imports',
+    ],
 
     settings: {
         react: {
-            version: 'detect'
-        }
+            version: 'detect',
+        },
     },
 
     rules: {
         'linebreak-style': ['error', 'windows'],
-        quotes: ['error', 'single'],
+        quotes: ['error', 'single', {}],
         semi: ['error', 'always'],
         'react/react-in-jsx-scope': 'off',
         'react/display-name': 'off',
-        'react/jsx-indent': ['error', 4],
-        'react/jsx-indent-props': ['error', 4],
         'unused-imports/no-unused-imports': 'error',
-        indent: ['error', 4],
         'react/jsx-filename-extension': [
             2,
-            { extensions: ['.js', '.jsx', '.tsx'] }
+            { extensions: ['.js', '.jsx', '.tsx'] },
         ],
         'object-curly-spacing': [2, 'always'],
         'i18next/no-literal-string': [
             'error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['data-testid', 'to', 'name', 'target', 'justify', 'align', 'direction', 'gap', 'role', 'as', 'border']
-            }
+                ignoreAttribute: [
+                    'data-testid',
+                    'to',
+                    'name',
+                    'target',
+                    'justify',
+                    'align',
+                    'direction',
+                    'gap',
+                    'role',
+                    'as',
+                    'border',
+                ],
+            },
         ],
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
         'my/path-checker': ['error', { alias: '@' }],
-        'my/layer-imports': ['error', { alias: '@', ignoreImportPatterns: ['**/StoreProvider', '**/testing'] }],
-        'my/public-api-imports': ['error', {
-            alias: '@',
-            testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx']
-        }]
+        'my/layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            },
+        ],
+        'my/public-api-imports': [
+            'error',
+            {
+                alias: '@',
+                testFilesPatterns: [
+                    '**/*.test.*',
+                    '**/*.story.*',
+                    '**/StoreDecorator.tsx',
+                ],
+            },
+        ],
+        'react/jsx-max-props-per-line': [
+            'error',
+            { maximum: { single: 3, multi: 1 } },
+        ],
     },
     overrides: [
         {
             files: ['**/**/*.test.{ts,tsx}', '**/**/*.stories.{ts,tsx}'],
             rules: {
-                'i18next/no-literal-string': 'off'
-            }
-        }
-    ]
+                'i18next/no-literal-string': 'off',
+                quotes: 'off',
+            },
+        },
+    ],
 };

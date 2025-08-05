@@ -29,20 +29,23 @@ export const RatingCard = memo((props: RatingCardProps) => {
         onAccept,
         onCancel,
         title,
-        rate = 0
+        rate = 0,
     } = props;
     const { t } = useTranslation();
     const [isModelOpen, setIsModalOpen] = useState(false);
     const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState('');
-    const onSelectStars = useCallback((selectedStarsCount: number) => {
-        setStarsCount(selectedStarsCount);
-        if (hasFeedback) {
-            setIsModalOpen(true);
-        } else {
-            onAccept?.(selectedStarsCount);
-        }
-    }, [hasFeedback, onAccept]);
+    const onSelectStars = useCallback(
+        (selectedStarsCount: number) => {
+            setStarsCount(selectedStarsCount);
+            if (hasFeedback) {
+                setIsModalOpen(true);
+            } else {
+                onAccept?.(selectedStarsCount);
+            }
+        },
+        [hasFeedback, onAccept],
+    );
     const acceptHandle = useCallback(() => {
         setIsModalOpen(false);
         onAccept?.(starsCount, feedback);
@@ -71,8 +74,12 @@ export const RatingCard = memo((props: RatingCardProps) => {
             max
         >
             <VStack align={'center'} gap={'8'} max>
-                <Text title={starsCount ? t('Спасибо за оценку'): title} />
-                <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStars} />
+                <Text title={starsCount ? t('Спасибо за оценку') : title} />
+                <StarRating
+                    selectedStars={starsCount}
+                    size={40}
+                    onSelect={onSelectStars}
+                />
             </VStack>
 
             <BrowserView>
@@ -101,12 +108,15 @@ export const RatingCard = memo((props: RatingCardProps) => {
             <MobileView>
                 <Drawer isOpen={isModelOpen} lazy>
                     {modelContent}
-                    <Button onClick={acceptHandle} size={ButtonSize.L} fullWidth>
+                    <Button
+                        onClick={acceptHandle}
+                        size={ButtonSize.L}
+                        fullWidth
+                    >
                         {t('Отправить')}
                     </Button>
                 </Drawer>
             </MobileView>
-
         </Card>
     );
 });

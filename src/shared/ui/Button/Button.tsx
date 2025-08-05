@@ -42,7 +42,6 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
      * Увеличивает кнопку на всю свободную ширину
      */
     fullWidth?: boolean;
-
 }
 
 export const Button = memo((props: ButtonProps) => {

@@ -52,17 +52,17 @@ export const SizeL = Template.bind({});
 SizeL.args = {
     title: 'Title lorem Ipsum',
     text: ' Description Description Description Description',
-    size:TextSize.L
+    size: TextSize.L,
 };
 export const SizeM = Template.bind({});
 SizeM.args = {
     title: 'Title lorem Ipsum',
     text: ' Description Description Description Description',
-    size:TextSize.M
+    size: TextSize.M,
 };
 export const SizeS = Template.bind({});
 SizeS.args = {
     title: 'Title lorem Ipsum',
     text: ' Description Description Description Description',
-    size:TextSize.S
+    size: TextSize.S,
 };

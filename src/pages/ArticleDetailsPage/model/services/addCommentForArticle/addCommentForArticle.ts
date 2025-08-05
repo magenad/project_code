@@ -5,7 +5,6 @@ import { getArticleDetailData } from '@/entities/Article';
 import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { Comment } from '@/entities/Comment';
 
-
 export const addCommentForArticle = createAsyncThunk<
     Comment,
     string,
@@ -19,9 +18,9 @@ export const addCommentForArticle = createAsyncThunk<
     }
     try {
         const response = await extra.api.post<Comment>('/comments', {
-            articleId:article.id,
-            userId:userData.id,
-            text
+            articleId: article.id,
+            userId: userData.id,
+            text,
         });
         if (!response.data) {
             throw new Error();

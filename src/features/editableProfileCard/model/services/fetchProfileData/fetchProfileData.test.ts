@@ -10,10 +10,9 @@ const data = {
     first: 'Ivan',
     lastname: 'Ivanov',
     currency: Currency.RUB,
-    city: 'Moscow'
+    city: 'Moscow',
 };
 describe('fetchProfileData.test', () => {
-
     test('success', async () => {
         const thunk = new TestAsyncThunk(fetchProfileData);
         thunk.api.get.mockReturnValue(Promise.resolve({ data: data }));

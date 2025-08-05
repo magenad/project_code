@@ -17,60 +17,68 @@ interface EditableProfileCardHeaderProps {
     className?: string;
 }
 
-export const EditableProfileCardHeader = memo(({ className }: EditableProfileCardHeaderProps) => {
-    const { t } = useTranslation();
-    const authData = useSelector(getUserAuthData);
-    const profileData = useSelector(getProfileData);
-    const canEdit = authData?.id === profileData?.id;
-    const readonly = useSelector(getProfileReadonly);
-    const dispatch = useAppDispatch();
-    const onEdit = useCallback(() => {
-        dispatch(profileActions.setReadonly(false));
-    }, [dispatch]);
-    const onCancelEdit = useCallback(() => {
-        dispatch(profileActions.cancelEdit());
-    }, [dispatch]);
-    const onSave = useCallback(() => {
-        dispatch(updateProfileData());
-    }, [dispatch]);
+export const EditableProfileCardHeader = memo(
+    ({ className }: EditableProfileCardHeaderProps) => {
+        const { t } = useTranslation();
+        const authData = useSelector(getUserAuthData);
+        const profileData = useSelector(getProfileData);
+        const canEdit = authData?.id === profileData?.id;
+        const readonly = useSelector(getProfileReadonly);
+        const dispatch = useAppDispatch();
+        const onEdit = useCallback(() => {
+            dispatch(profileActions.setReadonly(false));
+        }, [dispatch]);
+        const onCancelEdit = useCallback(() => {
+            dispatch(profileActions.cancelEdit());
+        }, [dispatch]);
+        const onSave = useCallback(() => {
+            dispatch(updateProfileData());
+        }, [dispatch]);
 
-    return (
-        <HStack max justify={'between'} className={classNames('', {}, [className])}>
-            <Text title={t('Профиль')} />
-            {canEdit && (
-                <>
-                    {readonly ?
-                        (
+        return (
+            <HStack
+                max
+                justify={'between'}
+                className={classNames('', {}, [className])}
+            >
+                <Text title={t('Профиль')} />
+                {canEdit && (
+                    <>
+                        {readonly ? (
                             <Button
                                 theme={ThemeButton.OUTLINED}
                                 onClick={onEdit}
-                                data-testid={'EditableProfileCardHeader.EditButton'}
+                                data-testid={
+                                    'EditableProfileCardHeader.EditButton'
+                                }
                             >
                                 {t('Редактировать')}
                             </Button>
-                        )
-                        :
-                        (
+                        ) : (
                             <HStack gap={'8'}>
                                 <Button
                                     theme={ThemeButton.OUTLINE_RED}
                                     onClick={onCancelEdit}
-                                    data-testid={'EditableProfileCardHeader.CancelButton'}
+                                    data-testid={
+                                        'EditableProfileCardHeader.CancelButton'
+                                    }
                                 >
                                     {t('Отменить')}
                                 </Button>
                                 <Button
                                     theme={ThemeButton.OUTLINED}
                                     onClick={onSave}
-                                    data-testid={'EditableProfileCardHeader.SaveButton'}
+                                    data-testid={
+                                        'EditableProfileCardHeader.SaveButton'
+                                    }
                                 >
                                     {t('Сохранить')}
                                 </Button>
                             </HStack>
-                        )
-                    }
-                </>
-            )}
-        </HStack>
-    );
-});
+                        )}
+                    </>
+                )}
+            </HStack>
+        );
+    },
+);

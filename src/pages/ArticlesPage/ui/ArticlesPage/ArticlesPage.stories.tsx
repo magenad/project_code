@@ -7,32 +7,32 @@ export default {
     title: 'pages/ArticlesPage/ArticlesPage',
     component: ArticlesPage,
     argTypes: {
-        backgroundColor: { control: 'color' }
+        backgroundColor: { control: 'color' },
     },
-    decorators: [StoreDecorator({
-        articlesPage: {
-            isLoading: false,
-            error: undefined,
-            ids: [],
-            entities: {},
-            view: ArticleView.SMALL,
-            page: 1,
-            limit: 9,
-            hasMore: true,
-            _inited: false,
-            sort: ArticleSortField.CREATED,
-            search: '',
-            order: 'asc',
-            type: ArticleType.ALL
-        }
-    })
-    ]
+    decorators: [
+        StoreDecorator({
+            articlesPage: {
+                isLoading: false,
+                error: undefined,
+                ids: [],
+                entities: {},
+                view: ArticleView.SMALL,
+                page: 1,
+                limit: 9,
+                hasMore: true,
+                _inited: false,
+                sort: ArticleSortField.CREATED,
+                search: '',
+                order: 'asc',
+                type: ArticleType.ALL,
+            },
+        }),
+    ],
 } as ComponentMeta<typeof ArticlesPage>;
 
-
-const Template: ComponentStory<typeof ArticlesPage> = (args) => <ArticlesPage {...args} />;
+const Template: ComponentStory<typeof ArticlesPage> = (args) => (
+    <ArticlesPage {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};
-
-

@@ -6,7 +6,6 @@ import { initArticlesPage } from './initArticlesPage';
 jest.mock('../fetchArticlesList/fetchArticlesList');
 const params = new URLSearchParams();
 describe('initArticlesPage.test', () => {
-
     test('success', async () => {
         const thunk = new TestAsyncThunk(initArticlesPage, {});
 
@@ -17,8 +16,8 @@ describe('initArticlesPage.test', () => {
     test('fetchArticlesList not called', async () => {
         const thunk = new TestAsyncThunk(initArticlesPage, {
             articlesPage: {
-                _inited:true
-            }
+                _inited: true,
+            },
         });
 
         await thunk.callThunk(params);

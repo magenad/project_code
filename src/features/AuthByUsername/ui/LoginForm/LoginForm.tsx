@@ -42,13 +42,13 @@ const LoginForm = memo(function LoginForm({
         (value: string) => {
             dispatch(loginActions.setUsername(value));
         },
-        [dispatch]
+        [dispatch],
     );
     const onChangePassword = useCallback(
         (value: string) => {
             dispatch(loginActions.setPassword(value));
         },
-        [dispatch]
+        [dispatch],
     );
     const onLoginClick = useCallback(async () => {
         const result = await dispatch(loginByUsername({ username, password }));

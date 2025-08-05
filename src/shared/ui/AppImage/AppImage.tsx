@@ -1,10 +1,15 @@
-import { ImgHTMLAttributes, memo, ReactElement, useLayoutEffect, useState } from 'react';
+import {
+    ImgHTMLAttributes,
+    memo,
+    ReactElement,
+    useLayoutEffect,
+    useState,
+} from 'react';
 
 interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
     className?: string;
     fallback?: ReactElement;
     errorFallback?: ReactElement;
-
 }
 
 export const AppImage = memo((props: AppImageProps) => {
@@ -35,9 +40,6 @@ export const AppImage = memo((props: AppImageProps) => {
     if (hasError && errorFallback) {
         return errorFallback;
     }
-    return (
-        <img className={className} {...otherProps} alt={alt} src={src}>
-
-        </img>
-    );
+    // eslint-disable-next-line
+    return <img className={className} alt={alt} src={src} {...otherProps} />;
 });

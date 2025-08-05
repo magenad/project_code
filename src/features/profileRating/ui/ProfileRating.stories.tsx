@@ -3,16 +3,13 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import ProfileRating from './ProfileRating';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 
-
 export default {
     title: 'features/ProfileRating',
     component: ProfileRating,
     argTypes: {
-        backgroundColor: { control: 'color' }
+        backgroundColor: { control: 'color' },
     },
-    decorators: [
-        StoreDecorator({ user: { authData: { id: '1' } } })
-    ]
+    decorators: [StoreDecorator({ user: { authData: { id: '1' } } })],
     // parameters: {
     //     mockData: {
     //         // url: `${_API__}/profile-ratings?userId=1&profileId=1`,
@@ -32,8 +29,9 @@ export default {
     // }
 } as ComponentMeta<typeof ProfileRating>;
 
-
-const Template: ComponentStory<typeof ProfileRating> = (args) => <ProfileRating {...args} />;
+const Template: ComponentStory<typeof ProfileRating> = (args) => (
+    <ProfileRating {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = { profileId: '1' };
@@ -50,11 +48,9 @@ Normal.parameters = {
                     profileId: '2',
                     rate: 3,
                     feedback: 'fsffg',
-                    id: '1'
-                }
-            ]
-        }
-    ]
+                    id: '1',
+                },
+            ],
+        },
+    ],
 };
-
-

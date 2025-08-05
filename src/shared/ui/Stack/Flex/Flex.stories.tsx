@@ -6,10 +6,9 @@ export default {
     title: 'shared/Flex',
     component: Flex,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof Flex>;
-
 
 const Template: ComponentStory<typeof Flex> = (args) => <Flex {...args} />;
 
@@ -23,7 +22,7 @@ Row.args = {
             <div>first</div>
             <div>first</div>
         </>
-    )
+    ),
 };
 
 export const RowGap4 = Template.bind({});
@@ -37,7 +36,7 @@ RowGap4.args = {
             <div>first</div>
             <div>first</div>
         </>
-    )
+    ),
 };
 export const RowGap8 = Template.bind({});
 RowGap8.args = {
@@ -50,7 +49,7 @@ RowGap8.args = {
             <div>first</div>
             <div>first</div>
         </>
-    )
+    ),
 };
 export const RowGap16 = Template.bind({});
 RowGap16.args = {
@@ -63,7 +62,7 @@ RowGap16.args = {
             <div>first</div>
             <div>first</div>
         </>
-    )
+    ),
 };
 export const RowGap32 = Template.bind({});
 RowGap32.args = {
@@ -76,7 +75,7 @@ RowGap32.args = {
             <div>first</div>
             <div>first</div>
         </>
-    )
+    ),
 };
 export const Column = Template.bind({});
 Column.args = {
@@ -89,7 +88,7 @@ Column.args = {
             <div>first</div>
             <div>first</div>
         </>
-    )
+    ),
 };
 export const ColumnGap16 = Template.bind({});
 ColumnGap16.args = {
@@ -103,6 +102,5 @@ ColumnGap16.args = {
             <div>first</div>
             <div>first</div>
         </>
-    )
+    ),
 };
-

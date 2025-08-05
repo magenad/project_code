@@ -8,43 +8,45 @@ export default {
     title: 'shared/Popups/Dropdown',
     component: Dropdown,
     argTypes: {
-        backgroundColor: { control: 'color' }
+        backgroundColor: { control: 'color' },
     },
     args: {
         trigger: <Button>Open</Button>,
         items: [
             { content: 'first' },
             { content: 'second' },
-            { content: 'third' }
+            { content: 'third' },
         ],
-        opened: true
+        opened: true,
     },
     decorators: [
-        Story => <div style={{ padding: '150px', position: 'absolute' }}><Story /></div>,
-        withActions
-    ]
+        (Story) => (
+            <div style={{ padding: '150px', position: 'absolute' }}>
+                <Story />
+            </div>
+        ),
+        withActions,
+    ],
 } as ComponentMeta<typeof Dropdown>;
 
-
-const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown {...args} />;
+const Template: ComponentStory<typeof Dropdown> = (args) => (
+    <Dropdown {...args} />
+);
 
 export const BottomLeft = Template.bind({});
 BottomLeft.args = {
-    direction: 'bottom left'
-
+    direction: 'bottom left',
 };
 export const BottomRight = Template.bind({});
 BottomRight.args = {
-    direction: 'bottom right'
+    direction: 'bottom right',
 };
 
 export const TopLeft = Template.bind({});
 TopLeft.args = {
-    direction: 'top left'
+    direction: 'top left',
 };
 export const TopRight = Template.bind({});
 TopRight.args = {
-    direction: 'top right'
+    direction: 'top right',
 };
-
-

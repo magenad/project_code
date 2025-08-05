@@ -4,7 +4,6 @@ import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
 import { validateProfileData } from '../validateProfileData/validateProfileData';
 import { Profile } from '@/entities/Profile';
 
-
 import { ValidateProfileError } from '../../consts/consts';
 
 export const updateProfileData = createAsyncThunk<
@@ -21,8 +20,11 @@ export const updateProfileData = createAsyncThunk<
     if (errors.length) return rejectWithValue(errors);
 
     try {
-        const response = await extra.api.put<Profile>(`/profile/${formData?.id}`, formData);
-        if(!response.data) throw new Error();
+        const response = await extra.api.put<Profile>(
+            `/profile/${formData?.id}`,
+            formData,
+        );
+        if (!response.data) throw new Error();
         return response.data;
     } catch (e) {
         return rejectWithValue([ValidateProfileError.SERVER_ERROR]);

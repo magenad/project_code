@@ -8,22 +8,39 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 // eslint-disable-next-line my/layer-imports
 import { Notification, NotificationList } from '@/entities/Notification';
 
-const notification: Notification = { id: '1', title: 'Title', description: 'Description' };
+const notification: Notification = {
+    id: '1',
+    title: 'Title',
+    description: 'Description',
+};
 export default {
     title: 'shared/Popups/Popover',
     component: Popover,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }, decorators: [
-        Story => <div style={{ paddingLeft: '550px', paddingTop: '350px', position: 'absolute' }}><Story /></div>,
-        StoreDecorator({})
+        backgroundColor: { control: 'color' },
+    },
+    decorators: [
+        (Story) => (
+            <div
+                style={{
+                    paddingLeft: '550px',
+                    paddingTop: '350px',
+                    position: 'absolute',
+                }}
+            >
+                <Story />
+            </div>
+        ),
+        StoreDecorator({}),
     ],
     args: {
-        trigger: (<Button theme={ThemeButton.CLEAR}>
-            <Icon Svg={NotificationIcon} inverted />
-        </Button>),
+        trigger: (
+            <Button theme={ThemeButton.CLEAR}>
+                <Icon Svg={NotificationIcon} inverted />
+            </Button>
+        ),
         children: <NotificationList />,
-        opened: true
+        opened: true,
     },
     parameters: {
         mockData: [
@@ -34,32 +51,31 @@ export default {
                 response: [
                     { ...notification },
                     { ...notification, id: '2' },
-                    { ...notification, id: '3' }
-                ]
-            }
-        ]
-    }
+                    { ...notification, id: '3' },
+                ],
+            },
+        ],
+    },
 } as ComponentMeta<typeof Popover>;
 
-
-const Template: ComponentStory<typeof Popover> = (args) => <Popover {...args} />;
+const Template: ComponentStory<typeof Popover> = (args) => (
+    <Popover {...args} />
+);
 
 export const BottomLeft = Template.bind({});
 BottomLeft.args = {
-    direction: 'bottom left'
-
+    direction: 'bottom left',
 };
 export const BottomRight = Template.bind({});
 BottomRight.args = {
-    direction: 'bottom right'
+    direction: 'bottom right',
 };
 
 export const TopLeft = Template.bind({});
 TopLeft.args = {
-    direction: 'top left'
+    direction: 'top left',
 };
 export const TopRight = Template.bind({});
 TopRight.args = {
-    direction: 'top right'
+    direction: 'top right',
 };
-

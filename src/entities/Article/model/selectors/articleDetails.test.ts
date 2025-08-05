@@ -1,17 +1,20 @@
 import { StateSchema } from '@/app/provider/StoreProvider';
-import { getArticleDetailData, getArticleDetailError,getArticleDetailIsLoading } from './articleDetails';
+import {
+    getArticleDetailData,
+    getArticleDetailError,
+    getArticleDetailIsLoading,
+} from './articleDetails';
 
 describe('getArticleDetailData.test', () => {
     test('should return data', () => {
-
         const data = {
-            id:'1',
-            title: 'subtitle'
+            id: '1',
+            title: 'subtitle',
         };
         const state: DeepPartial<StateSchema> = {
             articleDetails: {
-                data
-            }
+                data,
+            },
         };
 
         expect(getArticleDetailData(state as StateSchema)).toEqual(data);
@@ -42,7 +45,7 @@ describe('getArticleDetailData.test', () => {
         expect(getArticleDetailIsLoading(state as StateSchema)).toEqual(true);
     });
     test('should work with empty state isLoading', () => {
-        const state: DeepPartial<StateSchema> = { };
+        const state: DeepPartial<StateSchema> = {};
         expect(getArticleDetailIsLoading(state as StateSchema)).toEqual(false);
     });
 });

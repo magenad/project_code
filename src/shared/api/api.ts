@@ -5,9 +5,10 @@ export const $api = axios.create({
     baseURL: _API__,
 });
 
-$api.interceptors.request.use((config)=>{
-    if(config.headers) {
-        config.headers.Authorization = localStorage.getItem(USER_LOCALSTORAGE_KEY) || '';
+$api.interceptors.request.use((config) => {
+    if (config.headers) {
+        config.headers.Authorization =
+            localStorage.getItem(USER_LOCALSTORAGE_KEY) || '';
     }
     return config;
 });

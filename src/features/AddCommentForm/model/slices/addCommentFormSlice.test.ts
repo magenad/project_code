@@ -1,6 +1,9 @@
 // eslint-disable-next-line my/layer-imports
 import { LoginSchema } from '@/features/AuthByUsername';
-import { addCommentFormReducer,addCommentFormActions } from './addCommentFormSlice';
+import {
+    addCommentFormReducer,
+    addCommentFormActions,
+} from './addCommentFormSlice';
 import { AddCommentFormSchema } from '../types/addCommentForm';
 
 describe('addCommentFormSlice.test', () => {
@@ -9,8 +12,8 @@ describe('addCommentFormSlice.test', () => {
         expect(
             addCommentFormReducer(
                 state as LoginSchema,
-                addCommentFormActions.setText('123123')
-            )
+                addCommentFormActions.setText('123123'),
+            ),
         ).toEqual({ text: '123123' });
     });
 });
